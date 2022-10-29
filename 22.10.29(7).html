@@ -1,0 +1,65 @@
+<!-- transform:
+1. skew:기울기 
+skew x: x축으로 기울기 
+skew y: y축으로 기울기 
+skew x y: xy축으로 기울기
+2. rotate:회전 
+rotate x: x축 자체가 돌아가는 형태로(좌,우로 돌아가는 형태)
+rotate y: y축 자체가 돌아가는 형태로(위,아래로 돌아가는 형태)
+translate: 이동
+translate x: 좌,우로 이동
+translate y: 양수일때 아래로, 음수일때 위로 
+translate z: 앞, 뒤로 이동 -->
+<!-- scale: 2배 커짐 -->
+
+
+<html>
+    <head>
+        <style>
+            img{
+                width:100px;
+                height:100px;
+               
+            }
+            
+            #a:hover{transform:skewX(500deg);}
+            #b:hover{transform:skewY(500deg);margin:100px;}
+            #c:hover{transform:skew(500deg, 500deg);}
+
+            #d:hover{transform:rotateX(100deg);}
+            #e:hover{transform:rotateY(100deg);}
+            #f:hover{transform:rotate(100deg);}
+            
+            #g:hover{transform:scaleX(2);}
+            #hx:hover{transform:scaleY(2);}
+            #i:hover{transform:scale(2);}
+            #j:hover{transform:scale(2,3);} 
+
+        </style>
+    </head>
+
+    <body>
+        <div id="a"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="b"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="c"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="d"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="e"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="f"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="g"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="h"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="i"><img src="sea.jpg"></div>
+        <p></p>
+        <div id="j"><img src="sea.jpg"></div>
+
+
+
+    </body>
+</html>
