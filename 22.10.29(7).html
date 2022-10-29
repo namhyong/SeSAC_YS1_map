@@ -16,48 +16,49 @@ translate z: 앞, 뒤로 이동 -->
 <html>
     <head>
         <style>
+            div{position:relative;}
             img{
-                width:100px;
-                height:100px;
+                width:300px;
+                height:300px;
                
             }
             
-            #a:hover{transform:skewX(500deg);}
-            #b:hover{transform:skewY(500deg);margin:100px;}
-            #c:hover{transform:skew(500deg, 500deg);}
+            #a:active{transform:skewX(500deg);}
+            #b:active{transform:skewY(500deg);margin: 100 px;}
+            #c:active{transform:skew(500deg, 500deg);left: 200 px;}
 
-            #d:hover{transform:rotateX(100deg);}
-            #e:hover{transform:rotateY(100deg);}
-            #f:hover{transform:rotate(100deg);}
+            #d:active{transform:rotateX(100deg);left: 300 px;}
+            #e:active{transform:rotateY(100deg);left: 400 px;}
+            #f:active{transform:rotate(100deg);left: 500 px;}
             
-            #g:hover{transform:scaleX(2);}
-            #hx:hover{transform:scaleY(2);}
-            #i:hover{transform:scale(2);}
-            #j:hover{transform:scale(2,3);} 
+            #g:active{transform:scaleX(2);left: 600 px;}
+            #h:active{transform:scaleY(2);left: 700 px;}
+            #i:active{transform:scale(2);left: 800 px;}
+            #j:active{transform:scale(2,3);left: 900 px;} 
 
         </style>
     </head>
 
     <body>
-        <div id="a"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="b"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="c"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="d"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="e"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="f"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="g"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="h"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="i"><img src="sea.jpg"></div>
-        <p></p>
-        <div id="j"><img src="sea.jpg"></div>
+        <div ><img id="a" src="sea.jpg"></div>
+
+        <div><img id="b" src="sea.jpg"></div>
+
+        <div ><img id="c" src="sea.jpg"></div>
+
+        <div ><img id="d" src="sea.jpg"></div>
+
+        <div ><img id="e"src="sea.jpg"></div>
+
+        <div ><img id="f" src="sea.jpg"></div>
+
+        <div ><img id="g" src="sea.jpg"></div>
+
+        <div ><img id="h" src="sea.jpg"></div>
+
+        <div ><img id="i" src="sea.jpg"></div>
+
+        <div ><img id="j"src="sea.jpg"></div>
 
 
 
