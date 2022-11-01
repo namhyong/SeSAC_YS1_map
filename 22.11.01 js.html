@@ -1,0 +1,116 @@
+<!-- <script>
+     javascript 코드 작성
+</script>
+
+<head>안에서도 사용이 가능하며</head>
+<body> 안에서도 사용이 가능하다</body>
+
+console.log(): 브라우저의 개발 도구 >콘솔에서 확인가능
+alert():브라우저가 열렸을때 그 내용을 알림창으로 알려줌 -->
+
+<!-- 변수선언
+선언: 변수를 넣을 공간을 만듦
+let: 중복 선언 불가능, 재할당 가능, 아무것도 할당하지 않으면 자동으로 undefined가 할당, 임시로 선언할때 자주 사용
+var: 중복 선언 가능, 재선언 가능, 아무것도 할당하지 않으면 자동으로 undefined가 할당
+할당: 변수를 넣을 공간을 만들면서 값까지 넣는 것
+const: 선언과 동시에 값을 할당을 해줘야 하며, 한번 선언하면 값을 바꿀 수 없음, 재선언 불가능, 재할당 불가능   -->
+
+<!-- 자료형 확인하기: typeof() -->
+
+<!-- 연산자: 
+대입연산자: =
+비교연산자: == 값만 비교
+           ===: 타입까지 같아야 한다
+           =!: 값만 비교
+           ===!: 타입까지 달라야 한다
+            >= > < <=
+논리연산자: ! && ||
+
+javascript 함수: 코드를 반복적으로 사용하지 않기 위해 사용
+ 기본형태: function 함수이름helloWorld(parameter:매개변수 인자) {scope:함수가 실행되는 body} -->
+
+
+<html>
+    <head>
+        <script>
+            // alert('hi');
+            // console.log('hello');
+            // var a;
+            // console.log(a);
+
+            // var a = 1;
+            // console.log(a);
+
+            // var a= 2;
+            // console.log(a);
+
+            // console.log(typeof('문자'))
+            // console.log(typeof(245))
+            // console.log(typeof(()  {});)
+            // console.log(typeof(true))
+            // console.log(typeof({}))
+            // console.log(typeof([]))
+            // console.log(typeof(NaN))
+            // console.log(typeof(null))
+            // console.log(typeof('문자'))
+            
+            // var a;
+            // console.log(a);
+            // var a = "1"
+            // console.log(a);
+
+            // let b;
+            // console.log(b);
+            // b=1;
+
+            // console.log(a+"반갑습니다");
+
+            // console.log(parseInt(a)+b)
+
+
+            
+            // function sesac(){
+            //     comsole.log("sesac hi!");
+            // }
+            // sesac();
+
+            // function sesac2(abc, test, a) {
+            //     alert(abc+ "" + a + "hello");
+            // }
+            // sesac2("홍길동","", "13")
+            // sesac2(a)
+
+            function init(){
+                console.log("init");
+            }
+            function parameter1(a) {
+                console.log(a);
+            }
+            function parameter2(a,b){
+                console.log(a+" "+b);
+            }
+            function parameter3(a, b, c){
+                console.log("a: " + a  );
+                console.log("b: " + b );
+                console.log("c: " + c );
+            }
+
+            init()
+            parameter1(); //기본 형태 실행
+            parameter1(10);// parameter을 받음에도 전달하지 않기
+            parameter2(5,3);//parameter 1개 전닳
+            parameter3(1,2,3);
+            var variable ="hi";
+            parameter3(variable, variable, variable );
+            parameter3(variable, variable);
+            parameter3(variable);
+        </script>
+
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

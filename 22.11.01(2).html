@@ -1,0 +1,62 @@
+<!-- animation
+애니매이션을 나타내는 css + 애니메이션의 중간 상태를 나타내는 key frame
+
+animation-name: 애니메이션의 이름
+animation-duration: 한번 실행 할때 몇초간 유지할지
+animation-iteration-count: 한번 실행 할때 몇번을 할지
+
+keyframes:  %: 25% 단위로 진행상황을 지정 할 수 있음
+            from to로도 지정 가능
+
+animation-delay: 애니메이션이 시작하기 전에 delay를 가지는 (늦게 시작하는)
+animation-timing-function:
+                            linear:
+                            ease:
+
+opacity: 투명도 설정 -->
+
+
+<html>
+    <head>
+        <style>
+            div{
+                width:100px;
+                height: 100px;
+                background: blue;
+                position: relative;
+                animation-name: anim;
+                animation-duration: 2s;
+                animation-delay: 1s;
+                animation-timing-function: ease;
+                animation-iteration-count: 3;
+            }
+
+            @keyframes anim{
+                /* from {left: 0px;}
+                to{left:100px;} */
+
+                0%{left:0px;}
+                50%{left:200px;}
+                100%{left:300px;}
+            }
+            .div1{
+                border-radius: 50px;
+                background: yellow;
+                animation-name:ball;
+                animation-delay: 2s;
+                animation-duration: 2s;
+                animation-iteration-count: 5;
+            }
+
+            @keyframes ball {
+                to {top : 100px; opacity:0;}
+                from {top: 300px; opacity: 1;}
+            }
+        </style>
+    </head>
+
+    <body>
+        <div></div>
+        <div class="div1"></div>
+    </body>
+</html>
