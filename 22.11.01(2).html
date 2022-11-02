@@ -10,8 +10,13 @@ keyframes:  %: 25% 단위로 진행상황을 지정 할 수 있음
 
 animation-delay: 애니메이션이 시작하기 전에 delay를 가지는 (늦게 시작하는)
 animation-timing-function:
-                            linear:
-                            ease:
+                            linear: 애니메이션 효과가 처음부터 끝가지 일정한 속도로 진행
+                            ease: 기본값으로, 애니메이션 효과가 천천히 시작되어 그다음에는 빨라지고
+                                  마지막에는 다시 느려진다.
+                            ease-in: 애니메이션 효과가 천천히 시작
+                            ease-out:애니메이션 효과가 천천히 끝남
+                            ease-in-out: 애니메이션 효과가 천천히 시작되어, 천천히 끝남
+                            cubic-bezier(n,n,n,n):애니메이션 효과가 사용자가 정의한 cubic-bezier 함수에 따라 실행
 
 opacity: 투명도 설정 -->
 
