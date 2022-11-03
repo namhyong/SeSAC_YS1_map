@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <script>
+            var count = 0
+            function whi(){
+                count++
+                var a= document.createElement("tr");
+                
+                var b= document.createElement("td");
+               
+                var c= document.createElement("td");
+                
+                var d= document.createElement("td");
+                
+                var e= document.createElement("td");
+                
+                
+                
+                var table1 = document.querySelector("table")
+                
+                a.appendChild(b)
+                a.appendChild(c)
+                a.appendChild(d)
+                a.appendChild(e)
+                table1.appendChild(a)
+
+                b.innerText= count
+                var value1 =document.getElementById("value1")
+                var value2 =document.getElementById("value2")
+                c.innerText= value1.value;
+                d.innerText=value2.value;
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth();
+                
+                var day= date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                e.innerText = `${year} - ${month} - ${day}  ${hour} : ${minute}`;
+
+
+
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <p>방명록 입니다.</p>
+        <p>작성자<input type ="text" id ="value1" value =""></p>
+        <p>내용<input type ="text" id ="value2" value =""></p>
+        <button type="button" onclick="whi()">작성 </button>
+        <table border="1" cellpadding="1" cellspacing="1" width="800" height="100"> 
+            <tr>
+                <td>번호</td>
+                <td>작성자</td>
+                <td>내용</td>
+                <td>작성일</td>
+            </tr>
+         </table>   
+    </body>
+</html>
