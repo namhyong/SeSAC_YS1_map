@@ -2,25 +2,26 @@
     <head>
         <script>
             function caculate(){
-                var a= document.getElementById("value1").value;
-                var b= document.getElementById("value2").value;
-                var c= document.getElementById("operator").value;
-                if (c=="-")
-                document.getElementById("result").value = Number(a)-Number(b);
+                var a= document.getElementById("value1").value; // id가 value1인 요소의 입력된 value속성을 a객체로 지정
+                var b= document.getElementById("value2").value; // id가 value2인 요소의 입력된 value속성을 b객체로 지정
+                var c= document.getElementById("operator").value; // id가 operator인 요소의 입력된 value속성을 c객체로 지정
+                if (c=="-") 
+                document.getElementById("result").value = Number(a)-Number(b); //id가 result인 요소의 value속성을 가지고오는데 그 value 속성의 값은 객체 a와 객체 b를 빼는 것이다.
                 else if(c=="+")
-                document.getElementById("result").value = Number(a)+Number(b);
+                document.getElementById("result").value = Number(a)+Number(b); //id가 result인 요소의 value속성을 가지고오는데 그 value 속성의 값은 객체 a와 객체 b를 더하는 것이다.
                 else if (c=="*")
-                document.getElementById("result").value= Number(a)*Number(b);
+                document.getElementById("result").value= Number(a)*Number(b); //id가 result인 요소의 value속성을 가지고오는데 그 value 속성의 값은 객체 a와 객체 b를 곱하는 것이다.
                 else if (c=="/")
-                document.getElementById("result").value = Number(a)/Number(b);
+                document.getElementById("result").value = Number(a)/Number(b); //id가 result인 요소의 value속성을 가지고오는데 그 value 속성의 값은 객체 a와 객체 b를 나누는 것이다.
 
 
             }
 
-            function reset(){
-                var p= document.querySelector("p").value;
-
-                p.resetChild(p2);
+            function remove(){
+                document.getElementById("value1").value = ""; // id가 value1인 요소의 value 속성을 가져오는데 그 value 속성의 값은 ""(공백)이다.
+                document.getElementById("value2").value = "";
+                document.getElementById("operator").value = "";
+                document.getElementById("result").value = "";
 
             }
 
@@ -28,14 +29,14 @@
     </head>
 
     <body>  
-        <div>
+        <div >
             <p>값1:<input type ="text" id ="value1" value =""></p>
             <p>값2:<input type ="text" id ="value2" value =""></p>
             <p>연산자:<input type ="text" id ="operator" value =""></p>
             <p>결과:<input type ="text" id ="result" value=""></p>
         </div>
             <button type="button" onclick="caculate()">계산하기</button>
-            <button type="button" onclick="reset()">초기화</button>
+            <button type="button" onclick="remove()">초기화</button>
         
 
     </body>

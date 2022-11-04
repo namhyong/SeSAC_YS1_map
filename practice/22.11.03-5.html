@@ -1,42 +1,42 @@
 <html>
     <head>
         <script>
-            var count = 0
+            var count = 0 // count 객채는 0
             function whi(){
-                count++
-                var a= document.createElement("tr");
+                count++ // count객체의 숫자가 하나씩  증가함
+                var a= document.createElement("tr"); //tr태그를 새롭게 만들어서 a라는 객체로 지정
                 
-                var b= document.createElement("td");
+                var b= document.createElement("td"); //td태그를 새롭게 만들어서 b라는 객체로 지정
                
-                var c= document.createElement("td");
+                var c= document.createElement("td"); //td태그를 새롭게 만들어서 c라는 객체로 지정
                 
-                var d= document.createElement("td");
+                var d= document.createElement("td"); //td태그를 새롭게 만들어서 d라는 객체로 지정
                 
-                var e= document.createElement("td");
+                var e= document.createElement("td"); //td태그를 새롭게 만들어서 e라는 객체로 지정
                 
                 
                 
-                var table1 = document.querySelector("table")
+                var table1 = document.querySelector("table") //table태그의 속성을 가져와서 table1이라는 객체로 지정
                 
-                a.appendChild(b)
-                a.appendChild(c)
-                a.appendChild(d)
-                a.appendChild(e)
-                table1.appendChild(a)
+                a.appendChild(b) //a 객체 자식노드객체로 b 객체 추가 (tr태그 자식으로 td태그 넣음)
+                a.appendChild(c) //a 객체 자식노드객체로 c 객체 추가 
+                a.appendChild(d) //a 객체 자식노드객체로 d 객체 추가 
+                a.appendChild(e) //a 객체 자식노드객체로 e 객체 추가 
+                table1.appendChild(a) //table 객체 자식노드객체로 a 객체 추가 
 
-                b.innerText= count
-                var value1 =document.getElementById("value1")
-                var value2 =document.getElementById("value2")
-                c.innerText= value1.value;
-                d.innerText=value2.value;
-                var date = new Date();
-                var year = date.getFullYear();
-                var month = date.getMonth();
+                b.innerText= count //b객체에 count객체 텍스트 추가
+                var val1 =document.getElementById("value1") //id가 value1인 속성을 가져와서 val1객체로 지정
+                var val2 =document.getElementById("value2") //id가 value2인 속성을 가져와서 val2객체로 지정
+                c.innerText= val1.value; // c 객체에 val1객체의 value속성을 가져와 텍스트로 삽입
+                d.innerText=val2.value; // d 객체에 va12객체의 value속성을 가져와서 텍스트로 삽입
+                var date = new Date();  //현재 년,월,일,시,분를 가져와 date객체로 지정
+                var year = date.getFullYear(); // date객체의 년도를 가져와 year객체로 지정
+                var month = date.getMonth(); // date객체의 월을 가져와 month객체로 지정
                 
-                var day= date.getDate();
-                var hour = date.getHours();
-                var minute = date.getMinutes();
-                e.innerText = `${year} - ${month} - ${day}  ${hour} : ${minute}`;
+                var day= date.getDate(); // date객체의 일을 가져와 day객체로 지정
+                var hour = date.getHours(); // date객체의 시간을 가져와 hour객체로 지정
+                var minute = date.getMinutes(); // date객체의 분을 가져와 minute객체로 지정
+                e.innerText = `${year} - ${month} - ${day}  ${hour} : ${minute}`; // e 객체에 년,월,일,시,분 객체 가져와서 텍스트로 넣음
 
 
 
