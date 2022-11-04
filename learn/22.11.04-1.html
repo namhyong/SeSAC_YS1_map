@@ -1,35 +1,86 @@
 <html>  
     <head>
+        <title> 안녕하세요</title>
         <script>
-            const person = {
+        //     const person = {
 
-                name : {
-                        first: 'Bob',
-                        last: 'Smith'
-                        },
-                age: 32,
-                gender: 'male',
-                interests: ['music', 'skiing'],
-                bio: function() {
-                alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
-                },
-                greeting: function() {
-                alert('Hi! I\'m ' + this.name[0] + '.');
-                }
-                person.age = 45;
-                person['name']['last'] = 'Cratchit';
-            };
+        //         name : {
+        //                 first: 'Bob',
+        //                 last: 'Smith'
+        //                 },
+        //         age: 32,
+        //         gender: 'male',
+        //         interests: ['music', 'skiing'],
+        //         bio: function() {
+        //         alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        //         },
+        //         greeting: function() {
+        //         alert('Hi! I\'m ' + this.name[0] + '.');
+        //         }
+        //         person.age = 45;
+        //         person['name']['last'] = 'Cratchit';
+        //     };
 
-           console.log(person.name)
-           console.log(person.nam.first)
-           console.log(person.nam.last)
-           console.log(person.age)
-           console.log(person['name']['last'])
-           console.log(person.interests[1])
-           console.log(person.bio())
-           console.log(person.greeting())
-           console.log(person['eyes'])
-           console.log(person.farewell())
+        //    console.log(person.name)
+        //    console.log(person.nam.first)
+        //    console.log(person.nam.last)
+        //    console.log(person.age)
+        //    console.log(person['name']['last'])
+        //    console.log(person.interests[1])
+        //    console.log(person.bio())
+        //    console.log(person.greeting())
+        //    console.log(person['eyes'])
+        //    console.log(person.farewell())
+
+
+            // var arr1=[1,2,3,'a','b','c']; //arr1 객체의 속성값 1,2,3,a,b,c
+            // var arr2= new Array(1,2,3,'4','5','6')
+            // arr1.push('d')  
+            // console.log(arr1)
+            // console.log(arr2[0])
+            // console.log(arr2.indexOf('a'));
+            // console.log("length: " + arr2.length);
+            // arr1.push('d')
+
+
+            // var me ={
+            //     name: 'kyuri',
+            //     birth: '1115'
+
+            // };
+            // me['gender']='F';
+            // console.log(me);
+
+
+            // var me ={
+            //     name:"홍길동",
+            //     birth: '0101'
+            // };
+            // console.log(me);
+            // console.log(me["name"]);
+            // console.log(me.name);
+
+
+
+            
+            // console.log(Math.min());
+            // console.log(Math.min(-10, 2, 10)); //가장 큰 값 반환
+            // console.log(Math.min(0, 'a', 5));
+
+            // console.log(Math.max(10, 2, 10)); //가장 작은 값 반환
+
+            // console.log(Math.random()); // 0~1사이 무작위 수 반환
+            // var min = 1; var max = 10;
+            // console.log(Math.random() *(max-min) + min); //최소값과 최대값 사이의 수 랜덤
+
+            // console.log(document.documentElement); //문서에 있는 모든 요소를 가져옴
+            // console.log(document.head); //head 태그를 가져옴
+            // console.log(document.title); //title에 있는 내용을 가져옴
+            // console.log(document.URL); //URL을 가져옴
+            // console.log(document.domain); //도메인을 가져옴 자기 자신만 접속 가능
+
+
+
         </script>
      </head> 
      
@@ -38,3 +89,60 @@
 
      </body>
 </html>  
+
+
+<html>
+    <head>
+        <title>Document</title>
+        <script>
+            console.log( document.documentElement );
+            console.log( document.head );
+            console.log( document.title );
+            console.log( document.URL );
+            console.log( document.domain );
+        </script>
+    </head>
+    <body>
+        <img src="./cat.jpg" width="100" height="100">
+        <img src="./cat.jpg" width="100" height="100">
+        <img src="./cat.jpg" width="100" height="100">
+        <div id="div1">
+            <input type="text" id="input1" value="입력값">
+            <p class="css1">p1</p>
+            <p class="css1">p2</p>
+            <div>
+                <p class="css1">p3</p>
+            </div>
+            <button type="button" onclick="getData();">input 버튼</button>
+            <button type="button" onclick="getData2();">p태그 버튼</button>
+        </div>
+        <script>
+            console.log( document.getElementById("input1") );
+            console.log( document.getElementsByClassName("css1"));
+            console.log( document.getElementsByClassName("css1")[0]);
+            console.log( document.getElementsByTagName("img"));
+
+            console.log( document.querySelector("#input1"));
+            console.log( document.querySelector(".css1"));
+            console.log( document.querySelectorAll(".css1"));
+            console.log( document.querySelectorAll(".css1")[1]);
+            function getData() {
+                var input = document.getElementById("input1");
+                console.log( input.value );
+            }
+            function getData2(){
+                // var p1 = document.querySelectorAll(".css1")[0];
+                var p1 = document.getElementsByClassName("css1")[0];
+                console.log( p1 );
+                console.log( p1.value );
+                console.log( p1.text );
+                console.log( p1.html );
+                console.log( p1.innerText );
+                console.log( p1.innerHTML );
+
+                // p1.innerText = "p태그입니다.";
+                p1.innerText = "<strong>p태그입니다.</strong>";
+            }
+        </script>
+    </body>
+</html>
