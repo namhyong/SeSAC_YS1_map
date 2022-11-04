@@ -1,0 +1,40 @@
+<html>  
+    <head>
+        <script>
+            const person = {
+
+                name : {
+                        first: 'Bob',
+                        last: 'Smith'
+                        },
+                age: 32,
+                gender: 'male',
+                interests: ['music', 'skiing'],
+                bio: function() {
+                alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+                },
+                greeting: function() {
+                alert('Hi! I\'m ' + this.name[0] + '.');
+                }
+                person.age = 45;
+                person['name']['last'] = 'Cratchit';
+            };
+
+           console.log(person.name)
+           console.log(person.nam.first)
+           console.log(person.nam.last)
+           console.log(person.age)
+           console.log(person['name']['last'])
+           console.log(person.interests[1])
+           console.log(person.bio())
+           console.log(person.greeting())
+           console.log(person['eyes'])
+           console.log(person.farewell())
+        </script>
+     </head> 
+     
+     <body>
+
+
+     </body>
+</html>  
