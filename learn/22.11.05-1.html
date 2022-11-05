@@ -1,0 +1,132 @@
+<!-- bootstrap: 프레임워크: 프로그램을 사용하기 위한 툴
+단점: 내가 원하는 구조를 커스터마이징 하기가 힘듦
+얼마나 확장성이 있는가- 커스터마이징이 얼마나 용이한가가 좋은 부트스트랩
+1. cdn불러오기: 누군가 웹상에 올려둔것을 불러오는 형태 
+사용자의 위치에 따라서 레이아웃을 최적의 위치로 바꿔주는 
+반응형이 아닌 사이트의 경우 아래에 스크롤이 생김 네이버와 같이-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+    <!-- row: 행을 만들고 가로를 12칸으로 나눠 비율에 맞게 칸을 설정 -->
+    <div class ="row">
+      <div class="col bg-warning">1</div>
+      <div class="col bg-primary">2</div>
+      <div class="col bg-success">3</div>
+    </div>
+
+    <div class ="row">
+      <div class="col bg-warning">1</div>
+      <div class="col bg-primary">2</div>
+      <div class="col bg-success">3</div>
+      <div class="col bg-secondary">4</div>
+    </div>
+    <!-- 2:6:4로 크기를 조정 할 수 있음 -->
+    <div class ="row">
+      <div class="col-2 bg-warning">1</div>
+      <div class="col-6 bg-primary">2</div>
+      <div class="col-4 bg-success">3</div>
+
+    </div>
+    <!-- 기본적으로 8:4 였다가 md breakpoint를 지나면 4:8로 바뀜 이후 lg breakpoint를 지나면 10:2 비율로 바뀜 -->
+    <div class ="row">
+      <div class="col-8 col-md-4 col-lg-10 bg-warning">1</div>
+      <div class="col-4 col-md-8 col-lg-2 bg-primary">2</div>
+
+    </div>
+
+    <div class="row">
+      <!-- 12만큼 차지하다가 sm에서 6만큼 차지하고 lg에서 4만큼 차지하는 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <img src="americano.jpg" class="w-100">
+      </div>
+      <!-- 12만큼 차지하다가 sm에서 6만큼 차지하고 lg에서  8만큼 차지하는 -->
+      <div class="col-12 col-sm-6 col-lg-8">
+        <p class="bg-secondary">이 이미지는 아메리카노 입니다</p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <!-- 가운데 정렬 d-flex -->
+      <button type="button" class="btn btn-primary"style="margin-top: 100px">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+
+      <button type="button" class="btn btn-link">Link</button>
+    </div>
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              여기는 어디있나요?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                              <!-- show를 넣으면 처음에 기본으로 열려있음 -->
+            <div class="accordion-body">
+              <strong>여기에 있습니다.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="americano.jpg" class="d-block w-50" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="appogato.jpg" class="d-block w-50" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="espresso.jpg" class="d-block w-50" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="d-inline p-2 text-bg-primary">디스플레이 인라인 설정</div> 
+      
+      <div class="d-block p-2 text-bg-dark">디스플레이 블럭 설정</div>
+      
+      <div class="d-block d-sm-none  bg-warning" style="height:300px">
+        d-sm-none : 추가하면 늘렸을때 사라짐
+        div
+      </div>
+      <div class="d-none d-md-block d.lg.none bg-warning" style="height:300px">
+        없다가 생겼다가 다시 없어짐
+        
+      </div>
+
+
+      
+    </body>
+</html>

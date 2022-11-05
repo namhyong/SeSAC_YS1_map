@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+
+        <script>
+            function apple(){
+                var a = $("src");
+                $("#apple1").attr("src", "apple.png");
+
+    
+            }
+            function banana(){
+                $("#apple1").attr("src","banana.jpg");
+            //     var b = $("src");
+            //    b.src ="C:\Users\SBAUser\Desktop\github\SeSAC_YS1_map\practice\banana.jpg";
+                // a("src").src("C:\Users\SBAUser\Desktop\github\SeSAC_YS1_map\practice\banana.jpg")
+            }
+            function grape(){
+            //     var c = $("src");
+            //    c.src = "C:\Users\SBAUser\Desktop\github\SeSAC_YS1_map\practice\grape.jpg";
+            $("#apple1").attr("src","grape.jpg");
+            }
+            function peach(){
+                // var d = $("src");
+                // d.src = "C:\Users\SBAUser\Desktop\github\SeSAC_YS1_map\practice\peach.jpg";
+                $("#apple1").attr("src","peach.jpg");
+            }
+        </script>
+    </head>
+
+    <body>
+        <img id= apple1 src="apple.png">
+
+        <button type="buttton" onclick ="apple()">사과</button>
+        <button type="buttton" onclick ="banana()">바나나</button>
+        <button type="buttton" onclick ="grape()">포도</button>
+        <button type="buttton" onclick ="peach()">복숭아</button>
+
+    </body>
+</html>    
+
+
+

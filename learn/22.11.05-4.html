@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="./jquery-ui-1.13.2/jquery-ui.js"></script>
+        <link href="./jquery-ui-1.13.2/jquery-ui.js">
+    <style>
+        .div{ width:100px; height: 100px;}
+        .first{ background-color: red;}
+        .second{background-color: yellow;}
+        .third{background-color: green;}
+        .sizeup{font-size: 30px;}
+        
+    </style>
+    
+        <script>
+            function second(){
+                $("div").switchClass("first","second", 2000); //2초동안 클래스가 서서히 바뀜(2000 =2초동안 서서히)
+            }
+
+            function sizeup(){
+                $("div").switchClass("second","sizeup", 1000);   
+            }
+
+            function third(){
+                $("div").switchClass("sizeup","third");
+            }
+
+            function first(){
+                $("div").switchClass("third","first");
+            }
+
+            //switchClass(a,b)이면 a에서 b로 가는게 맞지만, a가 없어도 b로 바뀜
+            //switchClass(b,c)이면 마지막엔 c 로 바뀜
+            // switchClass는 앞에것을 뒤에거로 바뀌는거지 다른 스위치 클래스의 결과 까지 관여하지 않음 즉, 결과가 계속 바귈 수 있음
+
+        </script>   
+    </head>    
+        
+    <body>
+        <div class-="first"> div</div>
+        <button type="button" onclick="second()">first -> second</button>
+        <button type="button" onclick="sizeup()">second -> sizeup</button>
+        <button type="button" onclick="third()">sizeup -> third</button>
+        <button type="button" onclick="first()">third -> first</button>
+    </body>
+</html>   

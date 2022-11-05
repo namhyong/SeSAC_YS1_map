@@ -1,0 +1,46 @@
+<!-- class 조작 -->
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+        <style>
+            .class { 
+                background-color: pink;
+                font-weight: bold;
+                width:200px;
+                
+            }
+
+        </style>
+        <script>
+            function addClass() { //추가하는
+                $("div").addClass("class");
+            }
+
+            function removeClass() { //제거하는
+                $("div").removeClass("class");
+            }
+
+            function hasClass() {           //이 클래스를 가지고 있는지 없는 지  여부를 확인하는
+                $("div").hasClass("class");
+                console.log($("div").hasClass("class"))
+            }
+            function toggleClass() {        //있으면 삭제하고 없으면 추가한다. 
+                $("div").toggleClass("class");
+            }
+        </script>
+    </head>  
+    
+    <body>
+        <div>
+            div입니다.
+        </div>
+        <button type="button" onclick ="addClass()">addClass</button>
+        <button type="button" onclick ="removeClass()">removeclass</button>
+        <button type="button" onclick ="hasClass()">hasclass</button>
+        <button type="button" onclick ="toggleClass()">toggleclass</button>
+    </body>
+</html>    
+
+    

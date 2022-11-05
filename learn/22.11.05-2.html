@@ -1,0 +1,127 @@
+<!-- JQuery
+라이브러리: 자주쓰는 기능을 묶어 놓은 것
+오픈소스 기반이라 누구든 사용할 수 있다
+java를 조금 더 용이하게 사용 가능 
+$(선택자).동작함수(); $는 jquery() 함수의 축양 형태로 식별자 역할
+-->
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        //자바 스크립트로 함수 실행
+        function getData(){
+            var value1 = document.getElementById("input1").value;
+            console.log(value1);
+
+        // jquery로 함수 실행    
+         var value2 =   $("#input1").val();
+         console.log(value2);
+        }
+
+        function setData(){
+            // document.documentElementById("input1").value ="hi";
+            
+            $("#input1").val("hello"); //input1의 값을 hello로 설정
+       
+        }
+
+        function setStyle1(){
+            var p = document.querySelector("#p1");
+            p.style=" background-color:yellow; color: blue"
+        }
+
+        function setStyle2() {
+            $("#p1").css("background-color","red"); // jquery로1개씩 바꿀때 함수
+        }
+        
+        function setStyle3(){
+            $("#p1").attr("style","background-color:blue; color:white;"); //jquery로 여러개 바꾸기
+        }
+
+        function changeText(){
+            console.log($("#p1").text())
+            $("#p1").text("글자 변경")
+        }
+
+        function changeHTML(){
+            $("#p1").html("<strong>굵은 글자 변경</strong>")
+
+        }
+
+        function append1(){
+            document.querySelector("#p1").append("<h2>h2</h2>"); //h2태그를 적어오 문자로 인식하여 htnl 요소로 인식이 안됨
+            $("#p1").append("<h3>h3태그입니다.</h3>") // h3태그를 적어 html요소로 인식
+        }
+
+        function append(){  //부모 선택후 자식 추가 하는데 가장 뒤에 추가
+            $("#ul").append("<li class='append'>append</li>")
+        }
+
+        function prepend(){  //부모 선택후 자식 추가 하는데 가장 앞에 추가
+            $("#ul").prepend("<li>prepend</li>")
+        }
+        function before(){  //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 뒤에 추가
+            $("#li1").before("<li>before</li>")
+        }
+        function after(){   //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 앞에 추가
+            $("#li1").after("<li>after</li>")
+        }
+
+        function remove(){  //부모를 선택하지 않고 본인을 선택하여 형제요소 삭제
+            $(".append").remove();
+        }
+        function empty(){   //부모를 선택하지 않고 본인을 선택하여 형제요소 삭제
+            $("#ul").empty(); //부모를 선택하여 부모 아래 있는 모든 자식을 삭제
+        }
+
+        function parent(){  //요소 탐색(li태그의 부모 탐색)
+            console.log($("#li1").parent()); //li의 부모: ul
+            console.log($("#li").parent().parent()); // li의 부모의 부모: body
+            console.log($("#li").parent().prev()); //li 부모의 이전형제
+            console.log($("#li").parent().before());// 부모의 다음 형제 
+            $("#li1").parent().append("<li>parentAppend<//li>")
+        }
+
+        //1. $(선택자).parent().함수() : 바로 위에 존재하는 하나의 부모 요소 선택
+        //1. $(선택자).parents().함수() : 바로 위 부모뿐만 아니라 부모의 부모, 모든 조상을 선택
+        //1. $(선택자).next().함수() : 선택된 요소 바로 다음에 위치한 형제 요소 선택
+        //1. $(선택자).prev().함수() : 선택된 요소 바로 이전에 위치한 형제 요소 선택
+        //1. $(선택자).children().함수() : 선택된 요소의 자식 요소도 모두 선택 
+    </script>
+    
+    </head>
+
+    <body>
+        <p id="p1">p태그 입니다.</p>
+        <ul id="ul">
+            <li id="li1">기준 li</li>
+        </ul>
+        
+        <br>
+        <button type="buttton" onclick ="setStyle1()">javascript로 바꾸기</button>
+        <button type="buttton" onclick ="setStyle2()">jquery로 바꾸기</button>
+        <button type="buttton" onclick ="setStyle3()">jquery로 여러개 바꾸기</button>
+        <br>
+        <button type="buttton" onclick ="changeText()"> text 변경</button>
+        <button type="buttton" onclick ="changeHTML()">html 변경</button>
+        <br>
+        <input type="text" id="input1">
+        <button type="button" onclick="getData()">값 가져오기</button>
+        <button type="button" onclick="setData()">값 설정하기</button>"
+        <br>
+        <button type="buttton" onclick ="append1()">요소추가</button>
+        <br>
+        <button type="buttton" onclick ="append()">append</button>
+        <button type="buttton" onclick ="prepend()">prepend</button>
+        <button type="buttton" onclick ="before()">before</button>
+        <button type="buttton" onclick ="after()">after</button>
+        <br>
+        <button type="buttton" onclick ="remove()">remove</button>
+        <button type="buttton" onclick ="empty()">empty</button>
+        <br>
+        <button type="buttton" class="append" onclick ="parent()">parent</button>
+
+
+    </body>
+</html>
