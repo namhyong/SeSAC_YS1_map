@@ -55,18 +55,26 @@
     </div>
 
     <div class="row">
-      <!-- 12만큼 차지하다가 sm에서 6만큼 차지하고 lg에서 4만큼 차지하는 -->
+      <!-- 12만큼 차지하다가 sm에서 6만큼 차지하고 lg에서 4만큼 차지하는 창의 크기에 따라 이미지가 차지하는 공간의 크기 달라짐-->
       <div class="col-12 col-sm-6 col-lg-4">
         <img src="americano.jpg" class="w-100">
       </div>
       <!-- 12만큼 차지하다가 sm에서 6만큼 차지하고 lg에서  8만큼 차지하는 -->
+      <!-- 12만큼 차지할때는 한 row를 다 차지 하기 때문에 믿으로 내려가지만, 6만큼 차지하게 되면 그림 옆에 공간이 6남기 때문에 옆으로 가게 된다  -->
+
       <div class="col-12 col-sm-6 col-lg-8">
         <p class="bg-secondary">이 이미지는 아메리카노 입니다</p>
       </div>
-    </div>
+
+      <!-- 만약 아래와 같이 그림과 글자의 비율이 6:6이 형성되지 않고 6:7이라면 글자가 옆에 있지않고 그대로 아래 있게 됨
+      <div class="col-12 col-sm-7 col-lg-8">
+        <p class="bg-secondary">이 이미지는 아메리카노 입니다</p>
+      </div>
+    </div> -->
 
     <div class="d-flex justify-content-center">
       <!-- 가운데 정렬 d-flex -->
+      <!-- 버튼 생성 bootstrap -->
       <button type="button" class="btn btn-primary"style="margin-top: 100px">Primary</button>
       <button type="button" class="btn btn-secondary">Secondary</button>
       <button type="button" class="btn btn-success">Success</button>
@@ -79,6 +87,7 @@
       <button type="button" class="btn btn-link">Link</button>
     </div>
 
+    <!-- accordion 부트 스트랩: qna와 같은 형식에서 자주 사용 -->
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -96,6 +105,7 @@
         
       </div>
 
+      <!-- carousel:움직이는 이미지 슬라이드  -->
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -123,6 +133,7 @@
         </button>
       </div>
 
+      
       <div class="d-inline p-2 text-bg-primary">디스플레이 인라인 설정</div> 
       
       <div class="d-block p-2 text-bg-dark">디스플레이 블럭 설정</div>
@@ -132,10 +143,11 @@
         div
       </div>
       <div class="d-none d-md-block d.lg.none bg-warning" style="height:300px">
-        없다가 생겼다가 다시 없어짐
+        d-없다가 md-생겼다가 lg-다시 없어짐
         
       </div>
 
+      <!-- d-: 처음 , xs<sm<md<lg<xl순서 -->
 
       
     </body>

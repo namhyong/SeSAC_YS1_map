@@ -32,25 +32,26 @@ $(선택자).동작함수(); $는 jquery() 함수의 축양 형태로 식별자 
         }
 
         function setStyle2() {
-            $("#p1").css("background-color","red"); // jquery로1개씩 바꿀때 함수
+            $("#p1").css("background-color","red"); // jquery로1개씩 바꿀때 함수(background-color 하나 바꿈)
         }
         
         function setStyle3(){
-            $("#p1").attr("style","background-color:blue; color:white;"); //jquery로 여러개 바꾸기
+            $("#p1").attr("style","background-color:blue; color:white;"); //jquery로 여러개 바꾸기(background-color,color 바꿈)
         }
 
         function changeText(){
             console.log($("#p1").text())
-            $("#p1").text("글자 변경")
+            $("#p1").text("글자 변경") // 글자요소로 바뀜, html태그가 있어도 글자로 인식
         }
 
         function changeHTML(){
-            $("#p1").html("<strong>굵은 글자 변경</strong>")
+            $("#p1").html("<strong>굵은 글자 변경</strong>") // html요소로 바뀜, html태그가 있으면 html태그로 인식
 
         }
 
         function append1(){
             document.querySelector("#p1").append("<h2>h2</h2>"); //h2태그를 적어오 문자로 인식하여 htnl 요소로 인식이 안됨
+            //js와 jquery의 차이
             $("#p1").append("<h3>h3태그입니다.</h3>") // h3태그를 적어 html요소로 인식
         }
 
@@ -61,10 +62,10 @@ $(선택자).동작함수(); $는 jquery() 함수의 축양 형태로 식별자 
         function prepend(){  //부모 선택후 자식 추가 하는데 가장 앞에 추가
             $("#ul").prepend("<li>prepend</li>")
         }
-        function before(){  //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 뒤에 추가
+        function before(){  //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 앞에 추가
             $("#li1").before("<li>before</li>")
         }
-        function after(){   //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 앞에 추가
+        function after(){   //부모를 선택하지 않고 본인을 선택하여 형제요소 가장 뒤에 추가
             $("#li1").after("<li>after</li>")
         }
 
@@ -80,7 +81,8 @@ $(선택자).동작함수(); $는 jquery() 함수의 축양 형태로 식별자 
             console.log($("#li").parent().parent()); // li의 부모의 부모: body
             console.log($("#li").parent().prev()); //li 부모의 이전형제
             console.log($("#li").parent().before());// 부모의 다음 형제 
-            $("#li1").parent().append("<li>parentAppend<//li>")
+            $("#li1").parent().append("<li>parentAppend<//li>") //기준 li 뒤
+            //$("#li1").parent().prepend("<li>parentAppend<//li>") 기준 li 앞
         }
 
         //1. $(선택자).parent().함수() : 바로 위에 존재하는 하나의 부모 요소 선택
