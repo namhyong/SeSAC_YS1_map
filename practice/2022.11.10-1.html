@@ -121,17 +121,48 @@
   
     <div class="btn-group d-md-flex justify-content-center"  role="group" aria-label="Basic outlined example">
       <button type="button" class="btn btn-outline-warning" onclick ="soho()" style="height:50px;">소호</button>
-      <button type="button" class="btn btn-outline-warning" >브랜드</button>
+      <button type="button" class="btn btn-outline-warning" ><a href="https://www.sta1.com/shops?gndr=F&shopType=B"></a>브랜드</button>
 
     </div>
     <br>
+    <div>
+        <div class="dropdown">
+            <button class="btn btn-navbar-brand dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="display:inline;border-width:thin;margin:none">
+                샵 카테고리 <span style="color:orange; font-size:13px;">전체(672)</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="font-size: 15px;">
+            <li><a class="dropdown-item" href="#">ALL</a></li>
+            <li><a class="dropdown-item" href="#">러블리</a></li>
+            <li><a class="dropdown-item" href="#">섹시</a></li>
+            <li><a class="dropdown-item" href="#">모던시크</a></li>
+            <li><a class="dropdown-item" href="#">페미닌</a></li>
+            <li><a class="dropdown-item" href="#">럭셔리·명품</a></li>
+            
+            </ul>
+        </div>   
 
+        <!-- pagination.js사용해서 만들기 -->
+        <nav aria-label="..." style="display:inline;">
+            <ul class="pagination pagination-sm">
+                <li class="page-item active" aria-current="page">
+                <span class="page-link">전체</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">10대</a></li>
+                <li class="page-item"><a class="page-link" href="#">20대</a></li>                
+                <li class="page-item"><a class="page-link" href="#">30대</a></li>
+            </ul>
+        </nav> 
+
+    </div>           
+    
+
+     
 
 
     <br>
 
-    <ul class="shoplist" style="display:flex; justify-content: center;">
-      <div class="card-group col-md-4 col-lg-6">
+    <ul class="shoplist" style="display: flex; justify-content: center;">
+      <div class="card-group" style="max-width: 90rem;">
         <li>
           <div class="card" style="width: 18rem; ">
 
