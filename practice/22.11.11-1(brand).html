@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/179efbabea.js" crossorigin="anonymous"></script>
+<style>
+    body{
+      background-color: #F3F7FA;
+    }
+    .card-img-top{ position:relative;
+      width:50%;
+      height:50%;;
+      display:block;
+      margin:auto
+
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        display: block;
+
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+    .card-group{
+      justify-content: center;
+
+      
+    }
+    a{
+      text-decoration-line: none;
+      /* 하이퍼링크 밑줄 없애기 */
+    }
+
+
+    .card-text{
+      font-family: monospace;
+    }
+    li{
+      list-style: none;
+    }
+
+  </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script>
+        function login(){
+            var a =document.getElementById("idea").value
+            if (a== "namhyong" )
+            swal("login 성공");
+            else 
+            swal("login 실패")
+            
+        }
+
+
+
+    </script>
+
+<nav class="navbar bg-light"  >
+
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://www.sta1.com/shops?gndr=F&shopType=S" target="_blank">shop</a>
+      <a class="navbar-brand" href="https://www.sta1.com/items?gndr=F&shopType=S" target="_blank">ITEM</a>
+      <a class="navbar-brand" href="https://www.sta1.com/sales/all?gndr=F&shopType=S" target="_blank">SALE</a>
+      <a class="navbar-brand" href="https://www.sta1.com/sales/all?gndr=F&shopType=S" target="_blank">MORE</a>
+      <a class="navbar-brand">
+        <button class="btn btn-navbar-brand" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">로그인</button>
+        <!-- 버튼색을 navbar-brand로 맞춰서 색을 맞춤 -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">log-in</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+  <div class="offcanvas-body">
+    <img src= "id.jpg" width="50px"; height="50px;"><input type="text" id="idea" vlaue=""><br>
+    <img src= "password.jpg" width="50px" height="50px" ><input type="text" id="password" vlaue=""><br>
+    <button type="button" class="btn btn-outline-dark" onclick="login()">로그인</button>
+
+<br>
+<br>
+<div justify-content-center>
+  <a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fproxy%3DeasyXDM_Kakao_51iu8npfmi8_provider%26ka%3Dsdk%252F1.43.0%2520os%252Fjavascript%2520sdk_type%252Fjavascript%2520lang%252Fko-KR%2520device%252FWin32%2520origin%252Fhttps%25253A%25252F%25252Fwww.epis.or.kr%26origin%3Dhttps%253A%252F%252Fwww.epis.or.kr%26response_type%3Dcode%26redirect_uri%3Dkakaojs%26state%3Dipvhwbw59ro5aukdulmaz5%26through_account%3Dtrue%26client_id%3D950f3ae1f2f550e5ba7ff7d9fffc7781&talk_login=hidden"  target="_blank"><img src="kakao.png" > </a>
+  <a href="https://ko-kr.facebook.com/" targer="_blank"><img src="facebook.png"></a>
+  <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" targer="_blank"><img src="naver.png"></a>
+  <a href="https://www.icloud.com/"><img src="apple2.png"></a>
+</div>
+  </div>
+</div>
+      </a>
+
+      <form class="d-flex" role="search" >
+        <a class="nav-link navbar-brand" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:orangered"  >
+            인기검색어
+        </a>
+    <li class="nav-item dropdown" >
+        
+        <ul class="dropdown-menu"> 
+
+            <li><a class="dropdown-item" href="https://www.sta1.com/search?q=%ED%9B%84%EB%A6%AC%EC%8A%A4&gndr=F&shopType=S">1- 후리스</a></li>
+            <li><a class="dropdown-item" href="https://www.sta1.com/search?q=%ED%8C%A8%EB%94%A9&gndr=F&shopType=S">2- 패딩</a></li>
+            <li><a class="dropdown-item" href="https://www.sta1.com/search?q=%EC%8A%A4%EB%8B%88%EC%BB%A4%EC%A6%88&gndr=F&shopType=S&pg=1">3- 스니커즈</a></li>
+          </ul>
+        </li>
+    
+        <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요" aria-label="Search">
+
+
+        <button class="btn btn-outline-warning" type="submit">검색</button>
+      </form>
+    </div>
+  </nav>
+  
+    <div class="btn-group d-md-flex justify-content-center"  role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn btn-outline-warning" onclick ="location.href='http://127.0.0.1:5500/practice/22.11.10-1.html'" style="height:50px;">소호</button>
+      <button type="button" class="btn btn-outline-warning" onclick ="location.href='http://127.0.0.1:5500/practice/22.11.11-1(brand).html';" >브랜드</button>
+      <!-- 버튼 눌러스 하이퍼링크 연결하기 -->
+
+    </div>
+    <br>
+    <div>
+        <div class="dropdown">
+            <button class="btn btn-navbar-brand dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="display:inline;border-width:thin;margin:none">
+                샵 카테고리 <span style="color:orange; font-size:13px;">전체(672)</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="font-size: 15px;">
+            <li><a class="dropdown-item" href="#">ALL</a></li>
+            <li><a class="dropdown-item" href="#">SPA</a></li>
+            <li><a class="dropdown-item" href="#">스트릿·도메스틱</a></li>
+            <li><a class="dropdown-item" href="#">디자이너</a></li>
+            <li><a class="dropdown-item" href="#">스포츠</a></li>
+            <li><a class="dropdown-item" href="#">캐주얼</a></li>
+            
+            </ul>
+        </div>   
+
+        <!-- pagination.js사용해서 만들기 -->
+        <nav aria-label="..." style="display:inline;">
+            <ul class="pagination pagination-sm">
+                <li class="page-item active" aria-current="page">
+                <span class="page-link">전체</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">10대</a></li>
+                <li class="page-item"><a class="page-link" href="#">20대</a></li>                
+                <li class="page-item"><a class="page-link" href="#">30대</a></li>
+            </ul>
+        </nav> 
+
+    </div>           
+    
+
+     
+
+
+    <br>
+
+    <ul class="shoplist" style="display: flex; justify-content: center;">
+      <div class="card-group" style="max-width: 90rem;">
+        <li>
+          <div class="card" style="width: 18rem; ">
+
+            <p style="color:orangered">1위</p>
+            <a href = "https://www.nike.com/kr/?_sta1=MUwwTDEwMDFMU0wzNDQwTDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="nike.jpg" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:10px; color:black">나이키</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>스포츠</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem; background-color: #fff;">
+
+            <p style="color:orangered">2위</p>
+            <a href = "https://store-kr.uniqlo.com/display/displayShop.lecs?storeNo=83&siteNo=50706&displayNo=NQ1A13A07&displayMallNo=NQ1&_sta1=MUwwTDEwMDFMU0wzNDkyTDBMMEwwTE5MMDAw&stonType=P&storeNo=83&siteNo=50706" target="_blank">
+              
+              <img src="uniqlo.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">유니클로</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>SPA</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">3위</p>
+            <a href = "https://kr.louisvuitton.com/kor-kr/homepage" target="_blank">
+              
+              <img src="lv.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">루이비통</h5>
+                <p class="card-text" style = "text-align:center; color:black">20대,30대 <br>컨템포러리·명품,슈즈,가방</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">4위</p>
+            <a href = "https://topten.topten10mall.com/kr/front/viewMain.do?_sta1=MUwwTDEwMDNMU0wzNTAwTDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="topten.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">탑텐</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대<br>SPA</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">5위</p>
+            <a href = "https://www.nbkorea.com/index.action" target="_blank">
+              
+              <img src="newbalance.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">뉴발란스</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대<br>스포츠</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+      
+
+      
+        <li>
+          <div class="card" style="width: 18rem; ">
+
+            <p style="color:orangered">6위</p>
+            <a href = "https://www.getbarrel.com/?_sta1=MUwwTDEwMDNMU0wzNDc2TDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="barrel.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">배럴</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>스포츠</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem; background-color: #fff;">
+
+            <p style="color:orangered">7위</p>
+            <a href = "https://www.zara.com/kr/" target="_blank">
+              
+              <img src="zara.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">자라</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br> SPA</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">8위</p>
+            <a href = "https://www.adidas.co.kr/?cm_mmc=AdieSEM_google-_-SINGLESDAYBLACKFAYHOLIDAYFW22-_-Trademark-_-Trademark__ADIDAS.-_-dv%3AeCom-_-cn%3ASINGLESDAYBLACKFAYHOLIDAYFW22-_-pc%3Agoogle&cm_mmc1=KR&cm_mmc2=PPC-TM-CrossCategory-None-Exact-KR-APAC-eCom-Paid_Search&gclid=Cj0KCQiAgribBhDkARIsAASA5bvdMZ1lEE34RBCpVUqJKT-ENNKnP_xPQvgKi-iR_VPMamN0VN-p_-caAh3wEALw_wcB" target="_blank">
+              
+              <img src="adidas.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">아디다스</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>스포츠</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">9위</p>
+            <a href = "https://www.thenorthfacekorea.co.kr/?_sta1=MUwwTDEwMDNMU0wzNTI2TDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="northface.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">노스페이스</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대<br>스포츠,골프·아웃도어</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">10위</p>
+            <a href = "https://www.andar.co.kr/?_sta1=MUwwTDEwMDNMU0wzNjUyTDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="andar.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">안다르</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대<br>스포츠,피트니스</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+      
+      
+      
+        <li>
+          <div class="card" style="width: 18rem; ">
+
+            <p style="color:orangered">11위</p>
+            <a href = "https://www.mlb-korea.com/main/mall/view?_sta1=MUwwTDEwMDNMU0wzNTA2TDBMMEwwTE5MMDAw" target="_blank">
+              
+              <img src="mlb.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">엠엘비</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>스포츠,ACC잡화</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem; background-color: #fff;">
+
+            <p style="color:orangered">12위</p>
+            <a href = "https://www.crocs.co.kr/on/demandware.store/Sites-crocs_kr-Site/ko_KR/Default-Start?adid=ppc_naver_kr_brand_x_x_x_homelink_pc&n_media=27758&n_query=%ED%81%AC%EB%A1%9D%EC%8A%A4&n_rank=1&n_ad_group=grp-a001-04-000000029320698&n_ad=nad-a001-04-000000210491106&n_keyword_id=nkw-a001-04-000004808413882&n_keyword=%ED%81%AC%EB%A1%9D%EC%8A%A4&n_campaign_type=4&n_contract=tct-a001-04-000000000597165&n_ad_group_type=5&NaPm=ct%3Dlac2xxo0%7Cci%3D0Ay0002cSAPxfHIlj1j2%7Ctr%3Dbrnd%7Chk%3D4e63e9bd7aba202333dee17054f02eeabf9c76e2" target="_blank">
+              
+              <img src="crocs.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">크록스</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>슈즈</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">13위</p>
+            <a href = "https://www.nstationmall.com/natgeo" target="_blank">
+              
+              <img src="national.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">내셔널지오그래픽</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대 <br>스포츠,골프·아웃도어</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">14위</p>
+            <a href = "https://www.dior.com/ko_kr?NaPm=ct%3Dlac8onwx%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3D02f9cbdf3961ace4f616dd6bf0f1ecef27f422e3" target="_blank">
+              
+              <img src="dior.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">크리스찬디올</h5>
+                <p class="card-text" style = "text-align:center; color:black">20대,30대<br>컨템포러리·명품,슈즈,가방</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card" style="width: 18rem;">
+
+            <p style="color:orangered">15위</p>
+            <a href = "https://spao.elandmall.com/main/initMain.action" target="_blank">
+              
+              <img src="spao.JPG" class="card-img-top" alt="..."  >
+              <div class="card-body">
+                <h5 class="card-title" style = "text-align:center; border:5px; color:black">스파오</h5>
+                <p class="card-text" style = "text-align:center; color:black">10대,20대,30대<br>SPA</p>
+        
+              </a>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ul>
+
+    
+  </body>
+
+</html>
+

@@ -62,6 +62,9 @@
             
         }
 
+        function(){
+
+        }
 
     </script>
 
@@ -75,7 +78,7 @@
       <a class="navbar-brand">
         <button class="btn btn-navbar-brand" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">로그인</button>
         <!-- 버튼색을 navbar-brand로 맞춰서 색을 맞춤 -->
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">log-in</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -88,11 +91,12 @@
 
 <br>
 <br>
-<a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fproxy%3DeasyXDM_Kakao_51iu8npfmi8_provider%26ka%3Dsdk%252F1.43.0%2520os%252Fjavascript%2520sdk_type%252Fjavascript%2520lang%252Fko-KR%2520device%252FWin32%2520origin%252Fhttps%25253A%25252F%25252Fwww.epis.or.kr%26origin%3Dhttps%253A%252F%252Fwww.epis.or.kr%26response_type%3Dcode%26redirect_uri%3Dkakaojs%26state%3Dipvhwbw59ro5aukdulmaz5%26through_account%3Dtrue%26client_id%3D950f3ae1f2f550e5ba7ff7d9fffc7781&talk_login=hidden"  target="_blank"><img src="kakao.png" > </a>
-<a href="https://ko-kr.facebook.com/" targer="_blank"><img src="facebook.png"></a>
-<a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" targer="_blank"><img src="naver.png"></a>
-<a href="https://www.icloud.com/"><img src="apple2.png"></a>
-
+<div justify-content-center>
+  <a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fproxy%3DeasyXDM_Kakao_51iu8npfmi8_provider%26ka%3Dsdk%252F1.43.0%2520os%252Fjavascript%2520sdk_type%252Fjavascript%2520lang%252Fko-KR%2520device%252FWin32%2520origin%252Fhttps%25253A%25252F%25252Fwww.epis.or.kr%26origin%3Dhttps%253A%252F%252Fwww.epis.or.kr%26response_type%3Dcode%26redirect_uri%3Dkakaojs%26state%3Dipvhwbw59ro5aukdulmaz5%26through_account%3Dtrue%26client_id%3D950f3ae1f2f550e5ba7ff7d9fffc7781&talk_login=hidden"  target="_blank"><img src="kakao.png" > </a>
+  <a href="https://ko-kr.facebook.com/" targer="_blank"><img src="facebook.png"></a>
+  <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" targer="_blank"><img src="naver.png"></a>
+  <a href="https://www.icloud.com/"><img src="apple2.png"></a>
+</div>
   </div>
 </div>
       </a>
@@ -120,8 +124,9 @@
   </nav>
   
     <div class="btn-group d-md-flex justify-content-center"  role="group" aria-label="Basic outlined example">
-      <button type="button" class="btn btn-outline-warning" onclick ="soho()" style="height:50px;">소호</button>
-      <button type="button" class="btn btn-outline-warning" ><a href="https://www.sta1.com/shops?gndr=F&shopType=B"></a>브랜드</button>
+      <button type="button" class="btn btn-outline-warning" onclick ="location.href'http://127.0.0.1:5500/practice/22.11.10-1.html'" style="height:50px;">소호</button>
+      <button type="button" class="btn btn-outline-warning" onclick ="location.href='http://127.0.0.1:5500/practice/22.11.11-1(brand).html';" >브랜드</button>
+      <a href="javascript:brand()"></a>
 
     </div>
     <br>
