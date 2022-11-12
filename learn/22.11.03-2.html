@@ -31,16 +31,16 @@
             console.log (document.querySelectorAll(".css1")); // 배열의 형태로 모두를 가져옴
             console.log (document.querySelectorAll(".css1")[1]); // css1중에 인덱스 번호가 1인것만 가져옴
             function getData(){
-                var input =document.getElementById("input1"); //input1의 id값을 input이라는 객체로 지정
-                console.log (input.value);  
+                var input =document.getElementById("input1"); //input1 이라는 id값 가진 속성들을 input이라는 객체로 지정
+                console.log (input.value);  //input객체의 값을 가져옴(input객체는 input1 태그의 속성들을 나타냄)
             }    
             function getData2(){
                 var p1 =document.getElementsByClassName("css1")[0]; 
                 console.log(p1); //p1 객체에 대해 콘솔로그 찍음
-                console.log(p1.value); //p태그는 value라는 속성이 없기 때문에 오류
+                console.log(p1.value); //p태그는(class가 css1인 태그에는) value라는 속성이 없기 때문에 오류
                 console.log (p1.text); //p태그는 text라는 속성이 없기 때문에 오류
                 console.log (p1.html); //p태그는 html라는 속성이 없기 때문에 오류
-                console.log (p1.innerText); // p1의 객체의 내용을 가져옴
+                console.log (p1.innerText); // p1 객체의 내용을 가져옴
                 console.log (p1.innerHTML); // p1 객체의 내용을 가져옴
                 
                 //p1.innerText ="<div style= 'color:red'>p태그입니다.</div>" 내가적은 요소가 글자로 인식하여 div문까지 같이 출력

@@ -21,13 +21,13 @@
             // });
                 $("#div1").click(function(e){  //특정 요소에 마우스를 클릭했을때 이벤트 발생
                     console.log("div click")
-                    console.log("e: ", e);
+                    console.log("e: ",e );
                 });
                 $("#div1").mouseover(function(){ // 특정 요소에 마우스를 올렸을때 이벤트 발생
-                    alert("div mouseover");
+                    console.log("div mouseover");
                 })
                 $("#div1").hover(function(){    // 마우스를 올렸을때와 땠을떄 모두 감지(2개 감지)
-                    alert("div hover");
+                    console.log("div hover");
                 }, function(){                  // 옆 코드를 치면 마우스 땠을때 일어나는 이벤트 따로 설정 가능
                     console.log("div hover2"); 
                 });

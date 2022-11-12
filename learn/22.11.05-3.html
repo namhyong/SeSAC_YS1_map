@@ -15,15 +15,15 @@
         </style>
         <script>
             function addClass() { //추가하는
-                $("div").addClass("class");
+                $("div").addClass("class"); //div태그의 속성을 가져와서 class속성을 추가해 주는
             }
 
             function removeClass() { //제거하는
-                $("div").removeClass("class");
+                $("div").removeClass("class");  //div태그의 속성을 가져와서 class속성을 제거해 주는
             }
 
             function hasClass() {           //이 클래스를 가지고 있는지 없는 지  여부를 확인하는
-                $("div").hasClass("class"); 
+                $("div").hasClass("class"); //div태그의 속성을 가져와서 class속성이 있는지 없는지 여부 확인
                 console.log($("div").hasClass("class")) //가지고 있으면 true, 가지고 있지 않으면 false가 찍힘
             }                                           
             function toggleClass() {        //있으면 삭제하고 없으면 추가한다. 
