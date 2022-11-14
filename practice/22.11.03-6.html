@@ -1,9 +1,16 @@
 <html>
     <head>
         <script>
-           function calculate(){
-            
-           }
+            var price =24000;
+           function calculate(obj){
+            if(obj.checked)price=price + Number(obj.value);
+           
+           else price = price -Number(obj.value); //왜 아닐때 빼야하는지 모르겠음
+
+           var total = document.querySelector("#total");
+           total.innerText= price +"원";
+           
+        }
         </script>
     </head>
 
@@ -34,3 +41,5 @@
         </fieldset>
     </body>
 </html>    
+
+
