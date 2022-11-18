@@ -3,9 +3,9 @@
         <script>
             var price =24000;
            function calculate(obj){
-            if(obj.checked)price=price + Number(obj.value);
+            if(obj.checked)price=price + Number(obj.value); // obj가 체크 일때 obj의 값을 price 객체에 더해 줌
            
-           else price = price -Number(obj.value); //왜 아닐때 빼야하는지 모르겠음
+           else price = price -Number(obj.value); //체크를 풀었을 때 빼야하기 때문에 이 조건을 넣어줘야 함
 
            var total = document.querySelector("#total");
            total.innerText= price +"원";

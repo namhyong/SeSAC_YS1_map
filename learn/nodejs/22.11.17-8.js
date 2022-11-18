@@ -1,6 +1,6 @@
 // javascropt 문법
  
-// 구조분해 할당:
+// 배열 구조분해 할당:
 //     배열이나 객체의 속성을 해체해 그 값을 개별 변수에 담는 것
 
 // let list =['apple', 'banana']
@@ -15,13 +15,17 @@
 // console.log(item2);
 // console.log(item3);
 
-// let x =1;
-// let y = 3
-// let temp = x;
-// x= y;
-// y = temp
+// let x =1;    x=1로 선언
+// let y = 3    y=3으로 선언
+// let temp = x;    x값을 temp에 올려둠
+// x= y;        x와y를 같게 만들어 줘서
+// y = temp     temp에 있는 x값을 y로 가져옴
 
-// [y,x] =[x,y]
+// let x=1, y=3;
+// [x,y] =[y,x];
+// console.log(x,y)
+
+
 // //[1,3]
 // //[a,b] =[1,3]
 
@@ -35,7 +39,7 @@ let obj ={
 
 // let a =obj.a;
 // let{b,a} =obj; 
-// let{b:key1,a} =obj; // b키값의 이름을 key1으로 바꿈
+// let{b:key1,a} =obj; // b키의 이름을 key1으로 바꿈
 // // let{b:key1,a, c ='three'} =obj; //c키와 값을 새로 넣어줌
 // console.log(a);
 // console.log(key1);
