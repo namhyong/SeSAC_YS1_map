@@ -11,6 +11,9 @@ const num = require('./22.11.17-1.js')
 const a= num.a;
 const b= num.b;
 
+const {a,b} = require('./22.11.17-1.js') //객체 구조분해 형태로 가져온 모습 위와 같음
+
+
 function add(){
     return a+b;
 }
