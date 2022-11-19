@@ -81,4 +81,23 @@ function func2(){
 }
 
 
+function func1(callback){
+    console.log("func1");
+    console.log(callback);
+    callback('이름');
+}
+function func2(name){
+    console.log("func2")
+    console.log("name :" + name)
+}
+func1(func2)
+func1(function(name){
+    console.log("func2")
+    console.log("name :" + name)
+})
+
+// func1().then(function(name){     promise로 위에 코드를 바꿨을 때
+//     console.log("func2");
+//     console.log("name:",name);
+// })
 
