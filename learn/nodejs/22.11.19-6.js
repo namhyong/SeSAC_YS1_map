@@ -3,7 +3,7 @@ const fs =require('fs').promises  //fs모듈 불러오기
 const server =http.createServer(function(req,res){  //서버 생성
     fs.readFile('./22.10.29(6).html')   //파일 읽기
     .then(function(data){   //파일의 data나타내기
-       res.end(data.toString());
+       res.end(data);
     })
 })    
 

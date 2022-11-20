@@ -33,10 +33,12 @@
 
 // var b =func2()
 // console.log(b);
-// func2().then(function(result){
+// func2()
+//.then(function(result){
 //     console.log("result2:", result);
 //     return 'a';
-// }).then(function(abc){  //같은 라인에서 연결이 되있는것을 체이닝이라고 부름
+// })
+//.then(function(abc){  //같은 라인에서 연결이 되있는것을 체이닝이라고 부름
 //     console.log( "abc:", abc);  
 // })
 
@@ -50,12 +52,12 @@ function func3(flag){
         }
     })
 }
-func3(true).then(
+func3(false).then(
     function(msg){              //resolve로 들어왔을 때
         console.log("msg1:",msg)
     }
 ).catch(
-    function(msg){             //then에서 처리가 될 수 있고, then에서 처리가 되지 않으면 catch에서 처리가 될 수 있다.
+    function(msg){             //then에서 처리가 될 수 있고, then에서 처리가 되지 않으면(reject일때) catch에서 처리가 될 수 있다.
         console.log("msg2:",msg)
     }
 )

@@ -35,15 +35,16 @@ function login(id,pw){
         },3000)
     })
 }
-function getvideo(id){
-    return new Promise(function(resolve, reject){
-        setTimeout(function(){
-            console.log(id +"의 비디오 리스트");
-            resolve(['아바타','라라랜드'])
-        },2000)
+function getvideo(id){ // getvideo 함수가 있고 
+    return new Promise(function(resolve, reject){ //그 안에 프로미스 함수로 리졸브랑 리젝트가 있는 형태로
+        setTimeout(function(){ //타임아웃이 지난 후 (getvideo 함수)
+            console.log(id +"의 비디오 리스트");// getvideo인자인 id를 받아와서 콘솔로그를 찍는다.(getvideo 함수)
+            resolve(['아바타','라라랜드']) //앞의 콘솔로그까지 까지 끝나면 이 resolve를 인자로 then아래있는
+        },2000)                           //function videos를 시작          
     })
 }
-function getDetail(video){
+function getDetail(video){ //위의 function videos는 getdetail함수를 반환하고, 
+                            //getdetail 인자 video는 function videos인자 video배열의 0번째 인덱스를 나타낸다.
     return new Promise(function(resolve,reject){
         setTimeout(function(){
             resolve(["비디오 제목:"+video])
@@ -70,7 +71,7 @@ login('kim','1234')
    .then(function(user){
       return getvideo(user)})
    .then(function(videos){
-       return getDetail(videos[0])})
+       return getDetail(videos[1])})
    .then(function(msg){console.log(msg)})
   
 
