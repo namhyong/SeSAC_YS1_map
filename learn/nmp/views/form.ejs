@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>get 요청</h3>
+    <form action="/getForm" method="get" name="getform"> 
+        <!-- action: 정보를 전송하고 이동하고자 하는 주소 -->
+        <!-- method: get or post
+            get요청: 어떠한 주소로 정보를 보낼때 url에 기본라우터 주소 ?뒤에   그 정보가 그대로 나타남(그 정보를 쿼리라고 칭함)
+            post요청: 어떠한 요청을 했는지 url에서 볼 수 없음, 보안상 더 좋음 -->
+            <!-- form태그 name:선택사항 -->
+             <!-- input태그의 name은 필수사항 -->
+        <input type="text" name="id">          
+        <input type="password" name="pw">
+
+        <!-- fieldset: 묶음을 만들어줌 -->
+        <fieldset>
+            <!-- legend: 묶음의 제목 -->
+            <legend>성별</legend>
+            <!-- label태그안에 넣을 경우 해당 글자를 클릭해도 체크박스가 체크가 된다. -->
+            <input type="radio" name="gender"value="man" id="men"> <label for="men">남자 </label>    
+            <input type="radio" name="gender" value="woman" id="women"> <label for="women">여자 </label>
+            <!-- name이 gender로 같기 때문에 남자 여자 둘중 하나만 선택 가능 -->
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                취미
+            </legend>
+            <input type="radio" value="neflix"> 넷플보기
+            <input type="radio" value="music"> 음악감상
+                <!-- 취미는 name으로 묶여 있지 않기 때문에 여러개 선택이 된다. -->
+        </fieldset>
+
+       
+        <input type="checkbox" name="interest" value="netflix"> 넷플보기
+        <input type="checkbox" name="interest" value="music"> 음악감상
+        <input type="checkbox" name="interest" value="workout"> 운동
+        
+        <button type="submit">제출</button>
+        <!-- get요청은 임의로 url에 직접 입력하여 들어갈 수 있음 또한, 직접 입력한 쿼리가 터미널에 기록이 남음  -->
+    </form >
+
+    <h3> post 요청</h3>   
+    <!-- post요청은 직접 url로 입력하여 이동 할 수 없음 -->
+        <form action="/postForm" method="post" >
+                   
+            <!-- <input type="text" name="id" value="aaa" readonly>    -->
+            <!-- readonly인 경우value값을 주고 그 값이 바뀌지 않음 -->  
+            <input type="text" name="id" required>   
+                  <!--required: 값이 무조건 필요  -->
+            <input type="password" name="pw" placeholder="비밀번호" required>
+            <!--placeholder 해당 input에 무엇을 입력해야 하는지 알려줄 수 있다 -->
+
+            <select name="birthMonth">
+                <!-- name은 select 태그에 -->
+                <% for( var i =1; i<=12; i++) {%>
+                
+                <option value="<%=i%>"><%=i%>월</option>
+                <!-- value는 option태그에  -->
+                <%} %>
+
+
+            </select>
+
+            <textarea name ="content" rows="30" cols="50" required></textarea>
+            <!-- 대용량 input태그  row:새로로 쓸수 있는 줄 cols:가로로 쓸수 있는 글자-->
+
+            <button type="submit">제출</button>
+        </form >
+   
+        <script>
+            console.log(document.forms["getform"]) //폼태그가 선택
+
+        </script>
+</body>
+</html>
