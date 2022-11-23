@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=title%></title> 
-    <!-- 백엔드에서 적은 ranfer에 적은 키,값을 불러오기 위해 title사용 -->
+    <!-- 백엔드에서 적은 rander에 적은 키,값을 불러오기 위해 title사용 -->
 </head>
 <body>
     ejs 파일로 만든 html
@@ -24,7 +24,7 @@
         <div>안녕<%=data[i]%></div>     <!--  index.js의 data를 i로 불러옴 -->
     <% } %>
 
-    
+    <!-- span태그는 js 형식이 아닌데 왜 <% %>를 썼을까??????????? -->
     <div style="color:red;"><%="<span style='color:blue'>안녕</span>"%>하세요</div>
     <!-- '=':변수값을 출력할 때 사용 (span 태그를 태그로 인식하지 못함) -->
     <div style="color:red;"><%-"<span style='color:blue'>안녕</span>"%>하세요</div>

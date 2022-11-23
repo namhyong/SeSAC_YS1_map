@@ -12,7 +12,7 @@ app.listen(port,()=>{
     console.log("server open : ", port );
     })
     app.get('/report',(req,res)=>{    
-        res.render("index2",{
+        res.render("index2pr",{
             data:["/static/img/1.jpg","/static/img/2.jpg","/static/img/3.jpg"]  
         })              
             
