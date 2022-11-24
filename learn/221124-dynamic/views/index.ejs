@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendGet(){
+            var form = document.getElementById("form_info");
+            //form.name.value   form태그 안에 name속성이 name의 값을 가져온다
+            //form.age.value    form태그 안에 name속성이 age인 값을 가져온다.
+            //axios get을 이용한 통신
+            axios({
+                method:"get", //어떤 메소드를 사용할지
+                url:"/form", //경로
+                params:{      //query에 나타나는 것이 params로 보냄
+                    name:form.name.value
+                }
+            }). then(function(res){ //응답에 대한 것을 then으로 처리해 줘야 함(res.send에 대한 내용)
+                // alert(res.data);   //console.log 데이터 부분에 값이 들어옴
+                //만약 키값의 형태로 msg:~~로 오게되면  
+                //console.log(res)      콘솔로그에 data={msg:~~}로 나오게 되니까
+                alert(res.data.msg)          // 키값을 포함하여 alert(res.data.msg)로 나타나야 한다.
+            })
+        }
+        function sendPost(){
+            var form = document.getElementById("form_info");
+
+            axios({
+                method:"post", 
+                url:"/form", 
+                data:{  //post로 보낼때는 data로 보낸다.    
+                    name:form.name.value
+                }
+                
+            }). then(function(res){ 
+
+                alert(res.data.msg)       
+            })
+        }
+    </script>
+</head>
+<body>
+   <button type="button" onclick="sendGet();">get전송</button> 
+   <button type="button" onclick="sendPost();">post전송</button> 
+   <form id="form_info">
+        <input type="text" name="name">
+   </form>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <script>
+        function signin(){
+         var form = document.getElementById("get_info")
+
+         axios({
+            method:"get",
+            url:"/form2",
+            params:{
+                name:form.name.value,
+                gender:form.gender.value,
+                birthDay:form.birthYear.value + form.birthMonth.value + form.birthDay.value
+
+
+            }
+         }).then(function(res){
+            alert(res.data.msg)
+            alert(res.data.a)
+            alert(res.data.b)
+
+         })
+        }
+
+
+    </script>
+</head>
+<body>
+    <form id = get_info>
+
+        이름<input type="text" name="name">
+        <fieldset>
+            <legend>
+                성별
+            </legend>
+            <input type="radio" name="gender" value="man">남자
+            <input type="radio" name="gender" value="man">여자
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                생년월일
+            </legend>
+            <select name="birthYear">
+                <% for (var i=1900; i<=2022; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                
+                <%} %>
+            </select>
+            년
+            <select name="birthMonth">
+                <% for (var i=1; i<=12; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%} %>
+            </select>
+            월
+            <select name="birthDay">
+                <% for (var i=1; i<=31; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%} %>
+            </select>
+            일
+
+
+        </fieldset>
+
+
+        <button type="button" onclick ="signin();">회원가입</button>
+    </form>
+
+</body>
+</html>

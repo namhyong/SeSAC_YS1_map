@@ -52,9 +52,21 @@
                    
             <!-- <input type="text" name="id" value="aaa" readonly>    -->
             <!-- readonly인 경우value값을 주고 그 값이 바뀌지 않음 -->  
-            <input type="text" name="id" required>   
+            <input 
+            type="text" 
+            name="id" 
+            pattern="^([a-z0-9]){6, }$" 
+            title="소문자,숫자"
+            required/>   
+   
                   <!--required: 값이 무조건 필요  -->
-            <input type="password" name="pw" placeholder="비밀번호" required>
+            <input 
+            type="password" 
+            name="pw" 
+            placeholder="비밀번호" 
+            pattern="^([a-z0-9!@#$%^&*]){8,12}$"
+            title="소문자,숫자,8자리이상 12자리 이하"
+            required>
             <!--placeholder 해당 input에 무엇을 입력해야 하는지 알려줄 수 있다 -->
 
             <select name="birthMonth">
@@ -72,10 +84,13 @@
             <!-- 대용량 input태그  row:새로로 쓸수 있는 줄 cols:가로로 쓸수 있는 글자-->
 
             <button type="submit">제출</button>
+
+
+            
         </form >
    
         <script>
-            console.log(document.forms["getform"]) //폼태그가 선택
+            console.log(document.forms["getform"]) // getform태그가 선택 (form태그 중에 getform선택)
 
         </script>
 </body>

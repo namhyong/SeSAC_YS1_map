@@ -79,6 +79,11 @@ app.post("/postinfo2",(req,res)=>{
     res.send("post 요청 성공")
 })
 
+app.get("/form3",function(req,res){
+    console.log(req.query)
+    res.send("이름은: "+ req.query.name)
+})
+
 
 
 
