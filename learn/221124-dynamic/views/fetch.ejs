@@ -1,0 +1,80 @@
+
+<!-- fetch는 네트워크에서 json파일을 가져와서 콘솔에 인쇄하는 것 -->
+
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+        
+
+            function signin(){
+
+                var form = document.getElementById("form_info");
+
+                let a = fetch("/fetchpost", { // /post4: 가져올 경로
+                method: "post", // method: get방식 or post방식
+                headers: {
+                    "Content-Type": "application/json", //json 형식임을 알려줌(안알려주면 서버에서 못 읽는 문제가 생겼었음)
+                },
+                body: JSON.stringify(
+                    {id:form.id.value, pw:form.pw.value}    //서버로 보낼 정보를 json포멧에 넣어줌
+                    ),
+                })
+                // console.log(a) //여기까지 콘솔 찍어보면 promise가 pending(대기)중인것으로 나옴
+                .then(function(response) {    // 서버에서 if문등을 실행시키고 파싱해서 데이터를 넘겨 받는 과정
+                        return response.json();
+                        
+                }) .then(function(result){      //모든것이 끝나고 필요한 결과값 
+                //     //res같은 인자는 어떤 것이 들어가도 상관 없음 예(res,result,등등)
+                //     //객체와 같이 서버에 있는 값을 받아들이기 위한 용도. 
+                     console.log(result) //msg:<p style='color:red'> 로그인 실패가 키값으로 존재
+                     document.querySelector("#result").innerHTML = result.msg;
+                     });
+                // console.log(a)// response 까지만(result 주석처리) 콘솔로그 찍었을때 (promise 안에 있는 response object를 보여줌(json등으로))
+                // console.log(a)// 마지막 까지 콘솔로그 찍었을 때 (promise result출력)
+                }
+            
+
+
+
+            function signinget(){
+                var form = document.getElementById("form_info");
+                let str = "?id=" + form.id.value + "&pw=" + form.pw.value; //객체로 넣어버려도 되고 그냥 적어도 됨
+                
+                var b = fetch("/fetchget" + "?id=" + form.id.value + "&pw=" + form.pw.value , { //url 쿼리 부분에 해당하는 내용을 적어야 함
+                    method: "get",  //get방식
+                    }).then(response => {   // 서버에서 if문등을 실행시키고 파싱해서 데이터를 넘겨받는 과정
+                        return response.json()
+                })
+                
+                .then(function(result){ 
+                    document.querySelector("#result").innerHTML = result.msg}); //이후 then
+                 console.log(b)               
+                }
+
+        </script>
+    </head>
+    <body>
+        <fieldset>
+        <legend>fetch</legend>
+        <form id ="form_info" >
+            아이디<input type="text" name="id" value="" id="id">
+            비밀번호<input type="password" name="pw" value="" id="pw">
+
+            
+        </form>
+    </fieldset>
+        <button type="button" onclick = "signin()">post로그인</button>
+        <button tyep="button" onclick ="signinget()">get로그인</button>
+        <div id=result></div>
+    </body>
+</html>
+
+
+
+

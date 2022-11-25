@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        var form = $("#form_info");
+        function signin(){
+            
+            
+                        
+            $.ajax({
+                url: '/ajaxpost',
+                type: 'POST',
+                    data: {
+                        id:$("#id").val()  ,    //jquery이기 때문에 form.id.value이런식으로 못가져오기 때문에
+                        pw:$("#pw").val()       // id,pw의 id를 지정해주고 #id.val로 가져왔다.    
+                    },
+                success: function(res) {    //resolve일 경우
+                    console.log(res)    //res라고 내가 지정해준 객체는 msg:<p style='color:red>'로그인 실패</p> 또는
+                    $("#result").html(res.msg) //msg:<p style='color:blue>'로그인 성공</p>을 가지고 있어 msg키의 값을 id가 result인 것에 innerhtml해준다.
+
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        }
+        
+
+        function signinget(){
+            $.ajax({
+                url: '/ajaxget',
+                type: 'GET',
+                    data: {
+                        id:$("#id").val()  ,
+                        pw:$("#pw").val()  
+                    },
+                success: function(res) {
+                    console.log(res)
+                    $("#result").html(res.msg)
+
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <fieldset>
+    <legend>ajax</legend>
+    <form id ="form_info" >
+        아이디<input type="text" name="id" value="" id="id">
+        비밀번호<input type="password" name="pw" value="" id="pw">
+
+        
+    </form>
+</fieldset>
+    <button type="button" onclick = "signin()">post로그인</button>
+    <button type="button" onclick ="signinget()">get로그인</button>
+    <div id=result></div>
+</body>
+</html>
