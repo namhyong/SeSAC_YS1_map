@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- enctype:인코딩을 하겠다 multipart/form-data: 글자가 꺠지지 않도록 인코딩 하지 않겠다는 것을 알림 무조건 써야함  -->
+    <form action="/upload" method="POST" enctype="multipart/form-data"> 
+        <input type="text" name="name">
+        <input type="file" name="userfile"> 
+        <!-- userfile이 오기 전 name은 데이터를 multer에서 받을 수 있지만 userfile이후에 온 name2는 데이터를 받을 수 없다 (제일 위에 있는 filename 부분) -->
+        <!-- 따라서 파일에서 처리되어야 하는 파일은 file보다 위에 있어야한다. -->
+         <input type="text" name="name2">  <!--multer에서 처리 x -->
+
+        <button> 업로드single</button>
+
+    </form>
+
+
+    <form action="/upload-array" method="POST" enctype="multipart/form-data"> 
+        <input type="file" name="userfile" multiple> 
+        <!-- 여러개의 파일이 같은 name으로 업로드 할때 -->
+        <button> 업로드array</button>
+
+    </form>
+
+    <form action="/upload-fields" method="POST" enctype="multipart/form-data"> 
+        <input type="file" name="userfile1" > 
+        <input type="file" name="userfile2" >
+        <input type="file" name="userfile3" >
+        <!--multiple 없이 name이 여러개인 파일을 여러개 업로드 할때  -->
+        <button> 업로드fields</button>
+
+    </form>
+</body>
+</html>
