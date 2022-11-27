@@ -9,31 +9,23 @@
         <script>
             function signin(){
                 var form=document.getElementById("form_info")
+                var formdata = new FormData(form)
                 axios({
                     method:"post",
                     url:"/result3",
-                    data: {
-                        id:form.id.value,
-                        pw:form.pw.value,
-                        name:form.name.value,
-                        age:form.age.vlaue
-
-                    },
+                    data: formdata,
                     headers:{
                         'content-Type': 'multipart/form-data'
                     } 
                 }) 
-                    .then((res)=>{
-                        return res.data;})
-                    .then((res2) => {    
-                        
-                        document.querySelector("#img").innerHtml("<img src" + res2.data.filename+ ">")
-                    })
+
+                    .then((a) => {document.querySelector("img").src = a.data.path; })
+                   
             }
         </script>
     </head>
     <body>
-        <form  method="POST" enctype="multipart/form-data">
+        <form  id = "form_info" enctype="multipart/form-data">
             <fieldset>
                 <legend>
                     개인정보
@@ -46,12 +38,14 @@
                 
             </fieldset>
             <input type="file" name="userfile">
-            <button onclick=" resst()">리셋</button>
-            <button onclick=" sign9n()"> 회원가입 </button>
+            <button onclick="reset()">리셋</button>
+            <button onclick="signin()"> 회원가입 </button>
 
             
         </form>
-        <div id="img"></div>
+        <br>
+      <img>
+        <!-- <div class="resultimg"></div> -->
         
     </body>
 </html>

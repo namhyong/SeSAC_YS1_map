@@ -38,15 +38,17 @@
                 axios({
                     method: "post",
                     url: "/register2",
-                    data: formData,
+                    data: formData, //위에 선언한 formdata
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
-                }).then((a) => { return a.data; })
-                .then((d) => {
-                    document.querySelector("img").src = d.path;
+                }).then((a) => { return a.data; })  //data내용 가져온 것을 리턴
+                .then((d) => {                      //리턴된 data를 d객체로 지정하고 그
+                    document.querySelector("img").src = d.path; //data중에 path속성을 가져오는 형태
                 })
-                .then((a) => {document.querySelector("img").src = a.data.path; })
+
+
+                // .then((a) => {document.querySelector("img").src = a.data.path; })   //위처럼 리턴 하지 않고 한번에 쓸 수는 있음
             }
         </script>
     </head>

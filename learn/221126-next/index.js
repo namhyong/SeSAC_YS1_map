@@ -50,6 +50,18 @@ const upload = multer({
     })
 })
 
+// const upload = multer({              //정답 코드
+//     storage: multer.diskStorage({
+//         destination(req,file,done){
+//             done( null, 'uploads/');
+//         },
+//         filename(req,file,done){
+//             const ext = path.extname(file.originalname);
+//             done(null, req.body.id + ext );
+//         }
+//     })
+// });
+
 
 app.get("/file", (req,res) => {
     res.render("file")
@@ -127,18 +139,20 @@ app.get("/result2", (req,res) => {
 
 
 app.post("/result2", upload.single("userfile"),(req,res) => { 
+
     res.send(req.file.filename )
 });
+
+
 
 app.get("/result3", (req,res) => {
     res.render("practice3")
 })
 
-
-
-
 app.post("/result3", upload.single("userfile"),(req,res) => { 
-    res.send(req.file.filename )
+    console.log(req.file);
+    console.log(req.body);
+    res.send({path:req.file.path} )
 });
 
 
@@ -149,6 +163,8 @@ app.get("/register2", (req,res) => {        //정답코드
     res.render("practice36");
 });
 app.post("/register2", upload.single("userfile"), (req,res) => {        //페이지 이동을 안하기 위해 /register2를 같이 썼음
+    console.log(req.file);
+    console.log(req.body);
     res.send({ path: req.file.path } );
 });
 
