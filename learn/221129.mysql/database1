@@ -1,0 +1,156 @@
+데이터베이스
+    데이터를 저장하는 구조/자료의 모음
+    데이터의 집합소
+파일 시스템
+    데이터 베이스 사용하기 전 데이터의 저장을 위해 이용했던 시스템
+    단점: 1. 데이터 중복 확인 힘듦
+          2. 데이터 불일치 발생이 쉬움
+
+DBMS: 
+    파일 시스템이 가진 문제를 해결하기 위해 만들어진 것
+    데이터베이스에 접근하고 이를 관리하기 위해 존재한다.
+
+관계형 데이터베이스
+    RDBMS: 
+        테이블간의 관계를 맺을 수 있음 (MYSQL)
+
+데이터베이스 용어
+열(Column,Attribute,속성)   
+행(Record,Tuple,튜플): 어떠한 데이터
+테이블( Table,Relation)        
+
+학번        이름     학과명     성별    성적
+20051201    김철수   컴퓨터     남      85
+20050315    이영희   수학       여      95
+20051201    홍길동   과학       남      88
+20031209    이영희   컴퓨터     여      95
+20040307    박희동   수학     남      85
+
+key: 
+    데이터베이스에서 튜플을 찾거나 순서대로 정렬할 때 구분하고 정렬의 기준이 되는 속성
+기본키(pk):
+    메인 키로 한 테이블에서 특정 튜플(행)을 유일하게 구별할 수 있는 속성
+    Null 값 불가
+    중복 값 불가
+    ex:학번
+
+외래키(FK):
+    어떤 테이블의 기본키를 참조하는 속성
+
+    고객테이블                                                              주문테이블
+    아이디      이름           생년월일       연락처                      고객ID      상품명      개수
+    abc123     김아무개     1980-08-08      010-1234-5678                abc1234     노트북        4
+    def456     이아무개     1987-08-12      010-2345-6789                def456      핸드폰        3
+    ghi789     신아무개     1990-13-54      010-3456-7891                ghi789      이어폰        2
+
+    주문테이블의 고객 ID는 고객테이블의 ID를 참조한다.    
+
+    custom -> mysqlserver를 타고 들어가 mysql server8.0.31 옆으로 옮기기, mysql workbench를 타고 들어가 mysql workbench8.0.31->
+    쭉 next 
+
+cmd에
+    내pc ->windowsc->progra files->mysql->mysqk server8.0->bin 에 들어가서 주소 복사
+    
+    cd 복사한 주소 붙여 넣기
+    mysql -u root -p
+    비밀번호 입력
+    mysql입장 완료
+
+    sql문
+        ddl: 
+            데이터베이스를 정의하는 언어 
+                create:데이터베이스, 테이블 등을 생성하는 역할
+                    데이터베이스만들기  + 한글 인코딩: CREATE DATABASE  데이터베이스 명 DEFAULT CHATACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+                    값형식:
+                        VARCHAR(n): 가변
+                        TEXT(n)
+                        MEDIUMTEXT: 글자의 길이를 모를때
+                        INT:정수형 데이터 타입
+                        DATE:날짜
+                        DATETIME:날짜와 시간 형태의 기간 표현
+                        TIMESTAMP:데이터가 저장된 그 날짜와 시간이 저장된다
+                        not null: null값이 들어올 수 없다.
+
+                    실행시키기 위해서는 ctrl +enter를 누르면 명령어를 실행 시킬 수 있다.
+
+                alter:테이블을 수정하는 역할
+                    alter table member drop column birthday;
+                    alter table member add column birthday date not null;
+                    alter table member modify birthday date not null;
+
+                    기본값 설정: default "이름"
+                    pk설정: primary key
+                drop:데이터베이스 테이블을 삭제하는 역할을 한다(테이블 자체 삭제)
+                truncate:테이블을 초기화 시키는 역할을 한다.(테이블 내용이 초기화)  
+                    truncate table 테이블명: 빈테이블을 만든다.
+                
+            table 내용 확인을 하는 법:
+                desc 테이블명
+        
+        dml:
+            데이터베이스의 내부 데이터를 관리하는 언어
+                select:데이터베이스에서 데이터를 검색(조회)하는 역할
+                    select * from 테이블명 :모든 필드를 다 조회한다.(조건을 걸지 않았기 때문에 모든 데이터를 다 가져옴)
+                    select 필드1 from 테이블명: 필드1의 데이터를 가져온다
+                    select 필드1,필드2 from 테이블명: 필드1,필드2 데이터를 가져온다
+                    select * from 테이블명 where 필드명(조건으로 줄 필드명) ="조건값"
+                    select * from 테이블명 where 필드명(조건으로 줄 필드명) ="조건값" order by 필드명 DESC: 조건에 있는것만 나오게 하고 id에 따라 내림차순
+                    select * from 테이블명 order by 필드명 ASC:오름차순 정렬
+                    select * from 테이블명 order by 필드명 DESC:내림차순 정렬
+                    select * from 테이블명 where 필드명(조건으로 줄 필드명) ="조건값" order by 필드명 DESC limit 2
+                        :조건에 있는것만 나오게 하고 id에 따라 내림차순정렬 하고 위에서 2개만 가져옴
+                
+                Where ->order by -> limit 순서로 적어야 한다.
+
+                where절 비교연산자:
+                    =,>,>=,<,<=
+                    select *from user where age <= 50 and age>=25
+                
+                where절 부정연산자:
+                !=,^,<>, not 컬럼명 =    : 같지 않다
+                select * from user where age != 50
+
+                where절 SQL 연산자
+                    where 필드명 between a and b :a와 b 사이
+                    select * from 테이블명 where 필드명 in('조건1','조건2'): 필드안에 조건1,2가 있는지 확인하여 있으면 가져옴
+                    select * from 테이블명 where 필드명 like '%찾고싶은 글자%': %사이에 있는 글자가 중간에 있으면 가져옴
+                    select * from 테이블명 where 필드명 like '찾고싶은 글자%': 찾고싶은 글자로 시작하는 데이터를 가져옴
+                    select * from 테이블명 where 필드명 like '%찾고싶은 글자': 찾고싶은 글자로 끝나는 데이터를 가져옴
+                    select * from 테이블명 where 필드명 like '%찾고싶은 글자_': 찾고싶은 글자 뒤에 한글자가 와도 되고 그 한글자는 뭐든 상관없다.
+                    select * from 테이블명 where 필드명 like '%소_': '소'가 포함된 것중 2글자 까지 되는 것의 데이터를 가져오겠다.
+                    select * from 테이블명 where 필드명 is null : null값이 들어가있는 것을 조회
+                    select * from 테이블명 where not 필드명 is null: 필드명이 null값이 아닌 것을 조회
+
+                where절 논리 연산자 
+                    select * from 테이블명 where 필드명 조건1 and 조건2: 조건1이면서,조건2를 만족하는  
+                    select * from 테이블명 where 필드명 조건1 or 조건2: 조건1 또는 조건2를 만족하는
+                    select * from 테이블명 where 필드명 조건1 not 조건2: 조건2와 조건1이 반대되는 결과를 돌려준다.
+
+
+
+                insert:테이블에 데이터를 추가하는 역할을 한다.
+                    insert into 테이블명 (필드1,필드2,필드3)values("값1","값2","값3")
+                    not null이 아닌 경우:
+                        insert into 테이블명 (필드1,,필드3)values("값1","값3")이런 식으로 원하는 값만 넣을 수 있음
+                    insert into 테이블명 values("값1","값2","값3") 이렇게 사용하는 경우 모든 값을 순서대로 다 넣어줘야 함
+                update: 테이블에서 데이터를 수정하는 역할을 한다.
+                    update user set 필드명1=원하는 값 where 필드명2 ="원하는 조건" : 원하는 조건이 필드명1인것을 찾아서 필드명2를 원하는 값으로 바꿔라 
+                delete: 테이블에서 데이터를 삭제하는 역할을 한다.    
+                    delete from 테이블명 where 필드명 =지우고 싶은 필드명의 값 : 필드명의 값을 찾아서 지운다.
+
+        dcl:        
+
+
+
+npm i mysql하기
+
+
+# mysql 사용자 추가하기
+CREATE USER 'user'@'%' IDENTIFIED BY '비밀번호'; //어디서든 접속할 수있는 user라는 아이디를가진 user를 만듦
+# DB 권한 부여 (모든 DB에 접근 가능하도록)
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION;    //유저에 모든 권한 부여
+# 현재 사용중인 MySQL의 캐시를 지우고 새로운 설정을 적용하기 위해 사용
+FLUSH PRIVILEGES; //사용자 추가, 삭제 사용자 권한등을 뵨굥 하였을 때 변경사항을 적용하기 위해 사용
+select host, user, plugin, authentication_string from mysql.user; //mysql정보를 가져오는
+# mysql 계정 비밀번호를 바꾸고 싶을 때
+ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY '비밀번호';

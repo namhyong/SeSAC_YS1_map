@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function login(){
+                var form = document.getElementById("form_info");
+
+                axios({
+                    method:"post", 
+                    url:"/axiospost", 
+                    data:{      
+                        id:form.id.value,
+                        pw:form.pw.value
+
+
+                    }
+                }). then(function(res){ 
+                            if(res.data.id==rows.ID || res.data.pw ==rows.PW)
+                                alert("로그인 성공")
+                            else    
+                                alert("로그인 실패")       
+                           
+                            
+                        
+                    }
+
+                    
+                )}
+            
+        </script>
+    </head>
+    <body>
+        
+        <!-- <% for(let i = 0;i<rows.length; i++){ %>
+            <div>
+                <span><%=rows[i].ID%></span>
+                <span><%=rows[i].name%></span>
+            </div>
+
+            <%}%> -->
+        <form id =form_info>    
+            ID<input text="text" name="id">
+            PW<input text="password" name="pw">
+            <button type="button" onclick="login()">로그인</button>
+        </form>    
+    </body>
+
+
+</html>
