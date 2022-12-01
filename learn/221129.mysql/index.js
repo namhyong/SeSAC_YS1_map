@@ -44,7 +44,8 @@ app.post("/sqlpost",function(req,res){
         if(err) throw err 
     
         console.log(result);
-        res.render("index",{rows:result});  //mysql데이터베이스에서 가져온 user테이블 데이터를(result) rows에담아 랜더한다.
+        
+        res.send({rows:result});  //mysql데이터베이스에서 가져온 user테이블 데이터를(result) rows에담아 랜더한다.
         })
     })
         
