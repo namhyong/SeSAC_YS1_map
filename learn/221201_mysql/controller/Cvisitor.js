@@ -11,6 +11,7 @@ exports.register =(req,res) => {    //exports 뒤에 .register는 router에 cont
  Visitor.register_visitor(req.body, function(id){ //사용자가 입력한 정보를 넘겨주기 위해 req.body를 넘겨줌
     console.log(id);
     res.send(String(id))
+    // 만약 Visitor.js의 cb(result.insertId)로 보내지 않고, cb(result)로 보냈다면, String(id.insertId)이렇게 보내도 된다.
  })
     //insert req.body
  //

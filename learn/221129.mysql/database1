@@ -60,7 +60,7 @@ cmd에
         ddl: 
             데이터베이스를 정의하는 언어 
                 create:데이터베이스, 테이블 등을 생성하는 역할
-                    데이터베이스만들기  + 한글 인코딩: CREATE DATABASE  데이터베이스 명 DEFAULT CHATACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+                    데이터베이스만들기  + 한글 인코딩: CREATE DATABASE  데이터베이스 명 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
                     만든 데이터베이스 사용하기: use "데이터 베이스 명"
                     값형식:
                         VARCHAR(n): 가변
