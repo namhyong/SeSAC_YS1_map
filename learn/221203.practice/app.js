@@ -14,7 +14,7 @@ app.use(express.json())
 const router = require("./routes");  //router를 미들웨어로 걸어둠
 
 //localhost:8000/visitor라고 들어오는 주소에서만 접속 가능
-app.use('/visitor', router);  
+app.use('/', router);  
 
 
 app.get('*',(req,res)=>{    

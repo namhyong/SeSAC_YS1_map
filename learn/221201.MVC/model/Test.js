@@ -14,7 +14,7 @@ exports.login = ()=>{
     
     
     exports.user2 =()=>{
-        return(users)
+        return users;
     }
 
 

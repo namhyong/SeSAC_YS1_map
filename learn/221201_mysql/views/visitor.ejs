@@ -8,12 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
+    <style>
+        .d-none{
+            display:none;
+        }
+    </style>
 <body>
     <form id="form_register">
         <fieldset style="display: inline-block;">
             <legend>방명록 등록</legend>
+            <input type ="hidden" name="id">
             이름 : <input type="text" name="name" placeholder="사용자 이름"><br>
             방명록 : <input type="text" name="comment" placeholder="방명록"><br>
+            <div class="update-btn d-none">
+                <button type="button" onclick="update_visitor();">수정</button>
+                <button type="button" onclick="cancle();">취소</button>
+            </div>
+
             <div class="register-btn">
                 <button type="button" onclick="register();">등록</button>
             </div>
@@ -33,8 +44,9 @@
                 <td><%=data[i].id%></td>
                 <td><%=data[i].name%></td>
                 <td><%=data[i].comment%></td>
-                <td><button type="button" onclick="modify()">수정</button></td>
-                <td><button type="button" onclick="del()">삭제</button></td>
+                <td><button type="button" onclick="update_load('<%=data[i].id%>', this)">수정</button></td>
+                <td><button type="button" onclick="delete_visitor('<%=data[i].id%>', this)">삭제</button></td>
+                <!-- this: 함수가 걸려있는 태그가 담김 즉, 삭제 버튼 태그가 담김 -->
             </tr>
             
             <% } %>
@@ -42,6 +54,8 @@
     </table>
 
     <script>
+        let update_tr; //전역변수로 선언 
+
         function register(){
             let form = document.getElementById("form_register");
             let data={
@@ -54,24 +68,85 @@
                 data: data
             })
             .then((response)=>{
-                console.log(response)//백엔드에서 넘겨받은 data(insertId)
-                console.log(data)   //프론트엔드에서 내가 입력한 data(name,comment)
+                console.log(response)//백엔드에서 넘겨받은 정보들 중(response) data(insertId)
+                console.log(data)   //프론트엔드에서 내가 입력한 data{name:"값",comment:"값"} 중 원하는 속성(name,comment)
                 $("table").append(`
                 <tr>
                     <td>${response.data}</td> 
                     
-                    <td>${data.name}</td>
+                    <td>${data.name}</td> 
                     <td>${data.comment}</td>
                     <td><button type="button">수정</button></td>
-                    <td><button type="button">삭제</button></td>
+                    <td><button type="button" onclick="delete_visitor('${response.data}',this)">삭제</button></td>
                 </tr>
                 `)
             //response.data는  Cvisitor.js에서 id만 넘겼기 때문에 response.data만 적어도 가져올 수 있다.
+            //data.name은 위에 let으로 선언한 data를 가져오고 있다. 
             })
         }
-        function modify(){
-
+        
+        function delete_visitor(delete_id, element){ //delete_id 는 위에 onclick delete_visitor에서 넘겨준 인자
+            axios({
+                method: 'delete',
+                url: '/visitor/delete',
+                data:{id: delete_id}
+            })
+            .then((response)=>{
+                
+                if(response.data) element.parentElement.parentElement.remove(); //element(this 버튼 태그)의 부모의 부모인 tr태그를 삭제
+                else alert("알수없는 오류 발생")
+            })
         }
+        function update_load(id, element){
+            axios({
+                method: 'get',
+                url: '/visitor/get_visitor',
+                params:{id:id}
+
+            })
+            .then((response)=>{
+                console.log("aaa:",response)
+                var form = document.getElementById("form_register")
+                form.id.value = response.data.id;
+                form.name.value = response.data.name;   //서버에서 보낸 data
+                form.comment.value = response.data.comment;
+                $(".update-btn").removeClass("d-none") // d-none을 update-btn클래스에서 없애줌
+                $(".register-btn").addClass("d-none") // d-none을 update-btn클래스에서 생김
+
+                update_tr = element.parentElement.parentElement // load함수가 있는 버튼 태그의 부모의 부모 (tr태그)
+            })
+        }
+
+        function update_visitor(){
+            var form = document.getElementById("form_register");
+            axios({
+                method:'patch',
+                url:'/visitor/update',
+                data: {
+                    id:form.id.value,
+                    name:form.name.value,
+                    comment: form.comment.value
+                }
+            })
+            .then((req,res)=>{
+                update_tr.children[1].innerText = form.name.value; //tr태그의 자식태그인 td태그의1번 인덱스: name
+                update_tr.children[2].innerText = form.comment.value; //tr태그의 자식태그인 td태그의2번 인덱스: comment
+                
+
+                form.id.value="",
+                form.name.value="",
+                form.comment.value=""
+                $(".update-btn").addClass("d-none") 
+                $(".register-btn").removeClass("d-none") 
+
+                
+            })
+        }
+        //axios method:
+            //get: 조회
+            //post: 데이터 생성, 삽입,insert
+            //delete: 데이터 삭제
+            //patch,put: 데이터 수정( put: 데이터 전체 수정, patch: 데이터 일부 수정)
     </script>
 </body>
 </html>

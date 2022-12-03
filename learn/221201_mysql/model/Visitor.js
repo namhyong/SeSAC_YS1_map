@@ -28,7 +28,9 @@ exports.register_visitor = (info,cb) =>{    //info:req.body를 넘겨준 정보
     //info = req.body;{name: ,comment}
 
     var sql= `insert into visitor(name, comment) values('${info.name}','${info.comment}')`
-    //여기서 info는 Visitor.register_visiter 함수를 실행하면서 req.body의 정보를 담아 온 것 
+    //여기서 info는 Visitor.register_visiter 함수를 실행하면서 req.body의 정보를 담아 온 것
+    //req.body의 name과 comment를 sql 데이터 베이스에 넣어주기 위해 insert사용
+    //문자열이기 때문에 ''로 info.name과 info.comment를 감싸줌 (감싸주지 않으면 sql문에서 오류가 난다.) 
 
     cnn.query(sql,(err,result)=>{ //쿼리를 실행하는 함수
         if(err) throw err;     
@@ -37,6 +39,32 @@ exports.register_visitor = (info,cb) =>{    //info:req.body를 넘겨준 정보
     //1.위에 var sql과 cnn.query를 통해 sql문을 조회한 후
     //2. 아래 콜백 함수 실행 이는 곧 Cvisitor의 function(id)와 같은 함수
         cb(result.insertId);  
-        //sql의 결과중 insertID만을 가져오기 위해 위와 같이 사용
+        //sql의 결과중 insertId만을 가져오기 위해 위와 같이 사용
+    })
+}
+exports.delete_visitor = (id,cb) => { //controller 에서 delete_visitor를 실행시키면 받아오는 id
+    var sql = `delete from visitor where id = ${id} `
+    cnn.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log("delete result: ", result);
+        cb()
+    })
+}
+
+exports.get_visitor_by_model = (id,cb) => {
+    var sql = `select * from visitor where id = ${id}`;
+    cnn.query(sql,(err,rows)=>{
+        if(err) throw err;
+        console.log("select by id : ", rows[0]);
+        cb(rows[0])
+    })
+}
+
+exports.update_visitor = (info,cb) =>{
+    var sql = `update visitor set  name='${info.name}',comment= '${info.comment}'where id = ${info.id}`
+    cnn.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log("update result:", result)
+        cb()
     })
 }

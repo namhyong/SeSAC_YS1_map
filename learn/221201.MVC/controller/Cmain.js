@@ -8,7 +8,7 @@ exports.main = (req,res) => { //exports하는 것은 똑같지만, 불러오는 
     // res.render("index");
 }
 
-exports.test = (req,res) => {
+exports.test = (req,res) => { //exports 뒤에 .test는 router에 controller.뒤에 있는 문자
     res.send("test");
 }
 
