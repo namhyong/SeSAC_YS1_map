@@ -14,13 +14,15 @@ exports.login_insert = (login_info, cb) =>{
 
     cnn.query(sql,(err,rows)=>{
         if(err) throw err;
-        if (rows.length>0){
-            cb({rows});
-        }
-        else{
-            cb({})
-        }
-        
+
+        cb(rows);
     })
 
 }
+
+exports.insert_user =(user_info,cb) =>{
+    var sql = `insert into user values('${user_info.id}','${user_info.pw}','${user_info.name}')`
+cnn.query(sql,(err,result)=>{
+    console.log("insert user info: ", result)
+    cb()
+})}
