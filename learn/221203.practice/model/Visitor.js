@@ -22,7 +22,25 @@ exports.login_insert = (login_info, cb) =>{
 
 exports.insert_user =(user_info,cb) =>{
     var sql = `insert into user values('${user_info.id}','${user_info.pw}','${user_info.name}')`
-cnn.query(sql,(err,result)=>{
+    cnn.query(sql,(err,result)=>{
+        
     console.log("insert user info: ", result)
-    cb()
+    cb(result)
 })}
+
+exports.modify_user =(user_info,cb) =>{
+    var sql = `update user set pw='${user_info.pw}', name='${user_info.name}'where id = '${user_info.id}'`
+    cnn.query(sql,(err)=>{
+    if(err) throw err;
+   
+    cb()
+    })
+    
+}
+exports.delete_user = (info,cb) =>{
+    var sql = `delete from user where id = '${info.id}'`;
+    cnn.query(sql,(err)=>{
+        if (err) throw err;
+        cb()
+    })
+}

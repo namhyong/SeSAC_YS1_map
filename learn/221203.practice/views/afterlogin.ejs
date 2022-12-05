@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <form id="form_info">
+    ID:<input type="text" name="id"value= <%=data.id%>>
+    PW:<input type="text" name="pw"value= <%=data.pw%>>
+    이름:<input type="text" name="name" value= <%=data.name%>>
+    </form>
+    <form id ="modify_user">
+        <button type="button" onclick="modify_user()">회원정보 수정</button>
+    </form>
+    <form id ="delete_user">
+        <button type="button" onclick="delete_user()">회원정보 삭제</button>
+    </form> 
+ 
+    <script>
+        function modify_user(){
+            var form = document.getElementById("form_info")
+            axios({
+                method:'patch',
+                url:'/modify_user',
+                data:{
+                    id:form.id.value,
+                    pw:form.pw.value,
+                    name:form.name.value
+
+                }
+            }).then((rep)=>{return rep.data;})
+            .then((data)=>{
+                if(data){
+                alert("회원정보 변경 성공")
+            } else{
+                alert("회원정보 변경 실패")
+            }
+            })
+        }
+        function delete_user(){
+            var form = document.getElementById("form_info")
+            axios({
+                method:'delete',
+                url:'/delete_user',
+                data:{
+                    id:form.id.value,
+                    pw:form.pw.value,
+                    name:form.name.value
+
+                }
+            }).then((data)=>{
+                if(data){ 
+                    alert("회원정보 삭제 성공")
+            }else{
+                alert("회원정보 삭제 실패")
+            }
+               
+
+            })
+        }
+    </script>
+</body>
+</html>
