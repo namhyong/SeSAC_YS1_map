@@ -1,0 +1,81 @@
+sequelize:
+    자바스크립트 구문을 알아서 sql로 변환해준다.
+    DB 작업을 쉽게 할 수 있도록 도와주는 orm 라이브러리 중 하나
+    자바스크립트 함수가 데이터베이스에 맞는 sql문을 날려준다.
+
+사용하기위해서
+npm i sequelize sequelize-cli mysql2 를 설치해야 한다.
+
+config 폴더 만들기
+config.json 파일 만들기
+
+연결할 데이터베이스 작성
+{
+    "development":{
+        "host":"localhost",
+        "database":"sessac_test",
+        "username":"user",
+        "password":"qwer1234",
+        "dialect":"mysql"
+    }
+}
+development: 개발 환경
+    json파일은 중괄호로 시작해서 중괄호로 끝나야 한다.
+    host: 호스트 작성
+    database:데이터베이스 이름
+    username: 데이터베이스 유저 이름
+    password: 데이터베이스 비밀번호
+    dialect: 쓰고자 하는 데이터 베이스
+
+
+production: 배포환경
+
+
+const sequelize를 통해 sequelize를 require함
+model  index.js에 config객체를 만들고 config.jsondml delvelopment를 require 함
+db 객체를 만들고 배열을 생성해줌
+const sequelize = new sequelize(    
+    config.database,
+    config.username,
+    config.password,
+    config
+);) 하여 sequelize 객체를 만듬
+db.sequelize = sequelize를 통해 db객체의 sequelize 배열에 위에 선언한 sequelize를 넣어줌
+db.Sequelize = Sequelize를 통해 db객체의 Sequelize 배열에 require한 Sequelize를 넣어줌
+db.객체 = require("./함수가 있는 model파일 이름")(sequelize,Sequelize) 는 sequelize,Sequelize를 인자로 받아 함수가 있는 
+모델 파일로 가서 아 인자를 매개로 함수 실행
+    함수가 있는 모델 파일은 sequelize에서 받아온 db정보에서 원하는  테이블 정보를 규정 함
+
+이 db 배열을 exports함
+
+
+보낸 db정보를 controller에서 const {객체이름} = require("../model)로 require 함
+
+async await 함수 or promise 함수를 통해 사용
+
+async await:
+    exports.라우터에서 보낸 속성값 이름 = async(req,res) =>{
+        await 객체이름.sequelize함수(원하는데이터,{where:{조건}})
+        await함수가 처리되고 나서 할 일(promise의 .then 이후에 해당)
+    }
+promise:
+     exports.라우터에서 보낸 속성값 이름 = (req,res) =>{
+        객체이름.sequelize함수 (원하는 데이터, {where:{조건})
+     .then 앞에 함수가 처리되고 나서 할 일   
+
+
+seqyelize 함수 :
+    select * from table
+        = findAll()
+
+    insert into table(col1,col2) value(params1,params2)
+        = create({col1:prarams1,col2:params2})
+
+    delete from table where col1 = params1
+        = destroy({where:{col1:params1}})
+
+    select (col2,col3) from table where col1 = params1 order by col2 DESC limit 1
+        = findOne({attribute["col2","col3"]},{where:{col1:params1}},{order:[["col2","DESC"]]}{limit:1})
+
+    update table set col2="params2",col3="params3" where col1="params1"
+        = update({col2:params2,col3:params3},{where:{col1:params1}})
