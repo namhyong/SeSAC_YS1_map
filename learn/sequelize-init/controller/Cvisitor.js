@@ -114,7 +114,7 @@ exports.get_visitor_by_id = async(req, res) => {
     //     // 서버 응답 > 조회한 데이터
     //     // Visitor.findAll({
             // attributes:["id","name","comment"], 내가 원하는 컬럼만 가저오게 하는 방법 
-            // order: [["id","DESC"]] 어떤 정렬을 핧지
+            // order: [["id","DESC"]] 어떤 정렬을 할지
     //     //     where : {id:req.query.id},
     //     //     limit:1
     //     // })가 아래와 같음
