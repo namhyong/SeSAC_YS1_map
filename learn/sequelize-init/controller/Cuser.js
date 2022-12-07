@@ -23,6 +23,18 @@ exports.post_signup = async(req,res) => {
     res.send(true);
 }
 
+// exports.post_signup = (req,res) => {
+//     let data = {
+//         id: req.body.id,
+//         name: req.body.name,
+//         pw: req.body.pw
+//     }
+//     User.create(data)
+//     .then(()=>{
+//         res.send(true)
+//     })
+// }
+
 
 
 
@@ -44,7 +56,14 @@ exports.post_signin = async(req,res) => {
     else res.send(false);
     
 }
-
+// exports.post_signin = (req,res) =>{
+//     let data = {id:req.body.id, pw:req.body.pw}
+//     User.fineOne({Where:data})
+//     .then((result)=>{
+//         if(result) res.send(true)
+//         else res.send(false)
+//     })
+// }
 
 
 exports.profile = async(req,res) => {
@@ -57,6 +76,15 @@ exports.profile = async(req,res) => {
     //결과적으로 findAll을 사용할때는 배열의 크기에 따라 if문 else문이 나뉘는 형태이다. 
 }
 
+// exports.profile = (req,res) => {
+//     User.findAll({where:{id:req.body.id}})
+//    .then((result)=>{
+//     if ( result.length > 0 ) res.render("profile", {data: result[0]});
+//     else res.redirect("/user/signin");
+//    })
+
+// }
+
 
 
 exports.profile_edit = async(req,res) => {
@@ -68,7 +96,17 @@ exports.profile_edit = async(req,res) => {
      res.send(true);
     
 }
+// exports.profile_edit = (req,res) => {
+//     let data ={
+//         name: req.body.name,
+//         pw: req.body.pw
+//     }
+//.then(()=>{
+//     User.update(data,{where;{id:req.body.id}})
+//     res.send(true)
+//})
 
+// }
 
 
 exports.profile_delete = async(req,res) => {
@@ -77,3 +115,12 @@ exports.profile_delete = async(req,res) => {
         res.send(true);
    
 }
+
+// exports.profile_delete = (req,res) => {
+//     User.destroy({
+//         where:{id:req.body.id}
+//     })
+//     .then(()=>{
+//     res.send(true)
+//     })
+// };

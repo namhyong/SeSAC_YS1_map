@@ -17,7 +17,7 @@ exports.visitor = async(req, res) => {
 
 //promise 함수로 실행 
 
- // exports.visitor = async(req, res) => {
+ // exports.visitor = (req, res) => {
     // Visitor. findAll() //select * form visitor;에 해당 하는 부분
     // .then((result)=>{ //sql문을 실행하고 나서 하고자 하는 것(정보를 조회하고 조회한 정보를 바탕으로 해야하는 것이 들어가야 함)
     //     console.log(result);

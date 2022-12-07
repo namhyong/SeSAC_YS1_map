@@ -20,6 +20,7 @@ config.json 파일 만들기
     }
 }
 development: 개발 환경
+production: 배포환경
     json파일은 중괄호로 시작해서 중괄호로 끝나야 한다.
     host: 호스트 작성
     database:데이터베이스 이름
@@ -28,7 +29,7 @@ development: 개발 환경
     dialect: 쓰고자 하는 데이터 베이스
 
 
-production: 배포환경
+
 
 
 const sequelize를 통해 sequelize를 require함
@@ -49,7 +50,7 @@ db.객체 = require("./함수가 있는 model파일 이름")(sequelize,Sequelize
 이 db 배열을 exports함
 
 
-보낸 db정보를 controller에서 const {객체이름} = require("../model)로 require 함
+보낸 db정보를 controller에서 const {db객체의 원하는 배열이름} = require("../model)로 require 함
 
 async await 함수 or promise 함수를 통해 사용
 
