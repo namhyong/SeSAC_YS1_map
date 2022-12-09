@@ -26,9 +26,10 @@ app.use(express.json())
 
 const user = {id:"nam",pw:"1234"}
 app.get("/navbar", (req,res)=>{
-    res.render("navbar")
-    if(req.session.user) res.send(true)
-    else res.send(false)
+    res.render("navbar",{
+        user:req.session.user
+    })
+
 })
 
 app.post("/login",(req,res)=>{
@@ -43,7 +44,10 @@ app.post("/main",(req,res)=>{
 app.post("/login_check",(req,res)=>{
     if(req.body.id==user.id && req.body.pw ==user.pw){
         req.session.user = req.body.id
-        res.send(true)
+        res.send({user:req.session.user})
+        
+        console.log(req.session)
+        
     }
     else{res.send(false)}
 })

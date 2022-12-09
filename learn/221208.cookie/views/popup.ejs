@@ -35,7 +35,7 @@
         <script>
             
             const myModal = new bootstrap.Modal("#exampleModal")
-            if("<%=POPUP%>" !== "none") myModal.show()
+            if( POPUP !== "none") myModal.show()
             
             var form = document.getElementById("form_info")
             function del_popup(){
