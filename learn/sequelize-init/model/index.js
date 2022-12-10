@@ -28,6 +28,51 @@ db.Visitor = require("./Visitor")(sequelize,Sequelize) // Visitor.js의 exports�
 
 db.User = require("./User")(sequelize,Sequelize) //User.js(./User)에서 함수를 받아 실행시키고 db객체에 User라는 배열로 넣어줌
 
+
+// db.User = require("./User")(sequelize,Sequelize)
+// db.Product = require("./Product")(sequelize,Sequelize)
+// db.Payment = require("./Payment")(sequelize,Sequelize)
+
+// db.User.hasMany(db,Payment,{
+//     foreignKey : "user_id", //payment table
+//     sourceKey:"user_id", // user_id table
+//     onDelete:"casacade",
+
+// })
+// db.Payment.belongsTo(db.User,{
+//     foreignKey : "user_id",
+//     sourceKey:"user_id", 
+//     onDelete:"casacade",
+    
+
+// });
+// db.Product.hasMany(db.Payment,{
+//         foreignKey : "product_id", 
+//         sourceKey:"product_id", 
+//         onDelete:"casacade",
+    
+// })
+// db.Payment.belongsTo(db.User,{
+//     foreignKey : "product_id", 
+//     sourceKey:"product_id", 
+//     onDelete:"casacade",
+    
+
+// });
+
+//db.참조할 테이블.hasMany(db.현제태이블{
+//  foreignKey: "참조할 외래키 컬럼"
+//  sourceKey: " 현제 태이블 컬럼"
+//  onDelete:"casacade"    
+//})
+//db.현제 태이블.belongsTo(db. 참조할 외래키 테이블{
+//  foreignKey: "참조할 외래키 컬럼"
+//  sourceKey: " 현제 태이블 컬럼"
+//  onDelete:"casacade"    
+//})
+
+
+
 // 위에 두개는 아래와 같은 모습을 하고 있음
 // db{
 //     "Sequelize": Sequelize,

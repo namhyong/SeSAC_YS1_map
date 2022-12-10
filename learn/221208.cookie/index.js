@@ -19,29 +19,41 @@ app.use(session({
 //    secure: true 보안서버에서만 작동
 }))
 
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true})) //body에 있는 값 가져오기 위해 사용
 app.use(express.json())
 
 
 
 const user = {id:"nam",pw:"1234"}
-app.get("/navbar", (req,res)=>{
+
+app.get("/navbar", (req,res)=>{    
     res.render("navbar",{
         user:req.session.user
     })
 
 })
 
+// app.get("/navbar", (req,res)=>{          //해설버전
+//     if(req.session.user)
+//     res.render("navbar",{
+//         isLogin:true, id:req.session.user
+//     })
+//     else res.render("navbar",{isLogin:false})
+
+// })
+
+
+
 app.post("/login",(req,res)=>{
     res.render("login")
 })
 
-app.post("/main",(req,res)=>{
-    if(req.session.user) res.render(("navbar",{isLogin:true}))
-    else res.render("login")
-})
+// app.post("/main",(req,res)=>{
+//     if(req.session.user) res.render(("navbar",{isLogin:true}))
+//     else res.render("login")
+// })
 
-app.post("/login_check",(req,res)=>{
+app.post("/login_check",(req,res)=>{                        
     if(req.body.id==user.id && req.body.pw ==user.pw){
         req.session.user = req.body.id
         res.send({user:req.session.user})
@@ -51,6 +63,33 @@ app.post("/login_check",(req,res)=>{
     }
     else{res.send(false)}
 })
+
+// app.post("/login_check",(req,res)=>{                     //해설 버전
+//     if(req.body.id==user.id && req.body.pw ==user.pw){
+//         req.session.user = req.body.id
+//         res.send(true)
+        
+//         console.log(req.session)
+        
+//     }
+//     else{res.send(false)}
+// })
+
+
+
+app.destroy("/logout",(req,res)=>{
+     res.session.destroy(function(err){
+        if(err) throw err
+        res.send("로그아웃 성공")
+     })
+})
+
+// app.destroy("/logout",(req,res)=>{                              //해설 버전
+//     res.session.destroy(function(err){
+//        if(err) throw err
+//        res.redirect("/navbar")
+//     })
+// })
 
 
 

@@ -35,10 +35,14 @@
             }).then(function (res){
                 console.log(res)
                 if(res.data.user==form.id.value){
-                    alert(res.data.user+"로그인 성공")
+                    alert(res.data.user+"님 환영합니다.")
                     window.location.href= "/navbar"
                 }
-                else{alert("로그인 실패")}
+                else{
+                    alert("로그인 실패")
+                    form.reset() //form태그 안에 있는 value값이 reset
+                
+            }
             })
         }
     </script>

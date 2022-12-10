@@ -12,25 +12,40 @@
 
 </head>
 <body>
+
     <nav class="navbar bg-light">
         <form class="container-fluid justify-content-start" action="/login" method="post">
           <button class="aa" type="submit" >로그인</button>
           <button class="bb" type="button">회원가입</button>
         </form>
-          
-          <button class="logout d-none" > 로그아웃</button>
+      
+        <form>
+          <button class="logout d-none" onclick="logout()"> 로그아웃</button>
+        </form>
         
       
 
       </nav>
 <script>
   
-   if(  "<%=user%>" == "nam" ) {
+   if(  "<%=user%>" ) {
     $(".logout").removeClass("d-none")
     $(".aa").addClass("d-none")
     $(".bb").addClass("d-none")
    }
   
+   function logout(){
+    axios({
+      method: "destroy",
+      url:  "/logout"
+    })
+    .then(function(){
+    $(".logout").addClass("d-none")
+    $(".aa").removeClass("d-none")
+    $(".bb").removeClass("d-none")
+      
+    })
+   }
     
 </script>
 
