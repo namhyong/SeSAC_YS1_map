@@ -1,0 +1,19 @@
+기존에 있는 database 가져올때
+<ejs>
+table에 append 할때 <a>태그로 ejs 문법 사용해서 받아온 데이터 쓰기
+
+<controller>
+render 할 때 (find all)하면서 index_number 넘겨주기
+
+
+새로운 글 추가할때 
+
+<ejs>
+.then 이후
+링크를<a>태그 사용해서 append 하고, 
+링크 주소를 :/ 뒤에 백에서 받아온 index_number로 데이터 넣어주기
+
+<controller>
+await 이후 넘겨주는 데이터에 index_numverf 넘겨주기 
+
+ 
